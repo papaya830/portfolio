@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink, Routes, Route } from "react-router-dom"; // Import NavLink and routing components
 
-import './index.css';
 import './navbar.css'; // Include the navbar CSS
 import './body.css'; // Include body CSS
 
