@@ -1,0 +1,36 @@
+.nav-bar ul{
+    list-style-type: none;
+    background: #FFC0CB;
+    padding: 0x;
+    margin: 0x;
+    overflow: hidden;
+    width: fit-content;
+    border-radius: 30px;
+
+}
+
+.nav-bar li:last-child {
+    margin-right: 30px;
+}
+
+.nav-bar a{
+    color: black;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.nav-bar a:hover{
+    background-color: #F0F8FF;
+    border-radius: 30px;
+}
+
+.nav-bar li{
+    float: left;
+}
+
+.nav-bar {
+    margin-left: 12%;
+}
