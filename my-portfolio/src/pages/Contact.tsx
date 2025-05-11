@@ -15,8 +15,7 @@ const Contact = () => {
             <a href="mailto:chloecocoyip@gmail.com"> chloecocoyip@gmail.com</a> <br /><br />
             
             <strong>Links:</strong> <br />
-            - <a href="/path/to/software-engineering-resume.pdf" target="_blank" rel="noopener noreferrer">Epic new Software Engineering Resume</a> <br />
-            - <a href="/path/to/pm-resume.pdf" target="_blank" rel="noopener noreferrer">Epic new PM Resume</a> <br />
+            - <a href="https://drive.google.com/drive/folders/1moOIsxQ4VQhvMhSNczqZmE3Zh8cGPA9O?usp=sharing" target="_blank" rel="noopener noreferrer">Epic new Software Engineering Resume</a> <br />
             - <a href="https://github.com/cyip10" target="_blank" rel="noopener noreferrer">GitHub (Improving and Personal)</a> <br />
             - <a href="https://www.linkedin.com/in/chloeyip/" target="_blank" rel="noopener noreferrer">LinkedIn</a> <br />
           </div>
