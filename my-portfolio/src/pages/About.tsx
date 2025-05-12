@@ -1,11 +1,14 @@
 import '../index.css';
+// Import images directly
+import headImage from '../assets/images/head-new.jpg';
+import monkeyImage from '../assets/images/monkey.jpg';
 
 const About = () => { return (
     <main className="home">
         <h1>
             Chloe Yip
-            <img className="headliner" src="pics-website/head-new.jpg" alt="avatar" />
-            <img className="monkey-headliner" src="pics-website/monkey.jpg" alt="monkey" />
+            <img className="headliner" src={headImage} alt="avatar" />
+            <img className="monkey-headliner" src={monkeyImage} alt="monkey" />
         </h1>
 
         <div className="content-container">

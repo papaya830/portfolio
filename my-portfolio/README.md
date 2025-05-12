@@ -48,3 +48,7 @@ export default tseslint.config({
   },
 })
 ```
+
+
+## How to run the project
+`npm run dev`
