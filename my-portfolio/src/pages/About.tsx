@@ -17,9 +17,8 @@ const About = () => { return (
                 - I have 2 sisters(middle child moment) and a Yorkshire terrier.<br />
                 - I was a part of my high school's theater program (I &lt;3 musicals)<br />
                 - I love the ocean 🐋🐡🦭🐚<br />
-                - *Lady Midnight* by Cassandra Clare is my comfort book.<br />
                 - I love to travel (can't wait to have money)<br />
-                - I've been playing volleyball since I was 12. My new additions are bouldering and golf.
+                - I've been playing volleyball since I was 12. My newest additions are running, bouldering, and golf.
             </div>
         </div>
     </main>
