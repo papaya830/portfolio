@@ -9,6 +9,7 @@ const About = () => { return (
         </h1>
 
         <div className="content-container">
+<<<<<<< HEAD
             <div className="general-text">
                 Here are some FUN facts about me: <br />
                 - I have 2 sisters(middle child moment) and a Yorkshire terrier.<br />
@@ -18,6 +19,8 @@ const About = () => { return (
                 - I love to travel (can't wait to have money)<br />
                 - I've been playing volleyball since I was 12. My new additions are bouldering and golf.
             </div>
+=======
+>>>>>>> fe666eee57ed69953bb97b7c44d15cef090265c2
         </div>
     </main>
     );
