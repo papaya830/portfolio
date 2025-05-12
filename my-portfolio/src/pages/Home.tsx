@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import '../components/Navbar.css';
-import '../index.css';
+import '/src/components/Navbar.css';
+import '/src/index.css';
 import { plusSlides, showSlides } from './slideshow';
 
-// Import images directly
-import headImage from '../assets/images/head-new.jpg';
-import monkeyImage from '../assets/images/monkey.jpg';
-import meWithPumpkin from '../assets/images/me-pumpkin.jpg';
-import mePomo from '../assets/images/me-pomo.jpg';
-import meTheater from '../assets/images/me-theater.jpg';
+// Import images directly with absolute paths
+import headImage from '/src/assets/images/head-new.jpg';
+import monkeyImage from '/src/assets/images/monkey.jpg';
+import meWithPumpkin from '/src/assets/images/me-pumpkin.jpg';
+import mePomo from '/src/assets/images/me-pomo.jpg';
+import meTheater from '/src/assets/images/me-theater.jpg';
 
 const Home = () => {
   useEffect(() => {

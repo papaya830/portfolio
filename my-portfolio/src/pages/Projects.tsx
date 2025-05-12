@@ -1,7 +1,7 @@
-import '../index.css';
+import '/src/index.css';
 // Import images directly
-import headImage from '../assets/images/head-new.jpg'; // Make sure filename matches exactly
-import monkeyImage from '../assets/images/monkey.jpg'; // Make sure filename matches exactly
+import headImage from '/src/assets/images/head-new.jpg';
+import monkeyImage from '/src/assets/images/monkey.jpg';
 
 const Projects = () => { return (
     <main className="home">
