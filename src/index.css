@@ -121,5 +121,9 @@ a:hover {
   color: #FF69B4;
 }
 
+.about {
+  background-color: #e8d5f2;
+  min-height: 100vh;
+}
 
 

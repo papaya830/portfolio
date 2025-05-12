@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import '../components/Navbar.css';
 import '../index.css'; 
@@ -17,12 +16,7 @@ const Home = () => {
         <div className="general-text">
           Hi there! My name is Chloe, and I am a third year <a href="https://www.sfu.ca/computing/prospective-students/undergraduate-students/programs/degree-programs/softwaresystems.html">Software Systems</a> major at SFU doing an engineering minor in
           Computer and Electronics design. I'm interested in pursuing a career in software development, technical management,
-          and computer engineering. Currently, I'm a <a href="https://github.com/cyip10">Software Developer Intern</a> at <a href="https://www.improving.com/">Improving</a> (formerly BitQuill Technologies). <br /><br />
-
-          I'm a member of SFU Enactus, Aqua Analyzer team, as a Software and Firmware Developer! <br />
-          In my free time, I enjoy staying active, exploring new food spots, and being creative.
-          Right now, I’m training for a triathlon coming up in March, and I’m also part of a pentasport and volleyball league.
-          <br /><br />
+          and robotics. Currently, I was previously a <a href="https://github.com/cyip10">Software Developer Intern</a> at <a href="https://www.improving.com/">Improving</a> (formerly BitQuill Technologies). <br /><br />
 
           Dive into my <Link to="/projects">Projects</Link> to discover the exciting work I've been involved in and explore my professional journey.
           Learn more <Link to="/about">About Me</Link> to get to know who I am and what drives me.

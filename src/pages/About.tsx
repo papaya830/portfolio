@@ -9,8 +9,7 @@ const About = () => { return (
         </h1>
 
         <div className="content-container">
-            <div className="facts">
-                I guess you really wanted to learn about me😩😩. Pls don't leave jk lmfao... <br /><br />
+            <div className="general-text">
                 Here are some FUN facts about me: <br />
                 - I have 2 sisters(middle child moment) and a Yorkshire terrier.<br />
                 - I was a part of my high school's theater program (I &lt;3 musicals)<br />
@@ -18,11 +17,6 @@ const About = () => { return (
                 - *Lady Midnight* by Cassandra Clare is my comfort book.<br />
                 - I love to travel (can't wait to have money)<br />
                 - I've been playing volleyball since I was 12. My new additions are bouldering and golf.
-            </div>
-
-            <div className="professional-facts">
-                Here are some professional facts about me: <br />
-                - I am
             </div>
         </div>
     </main>
