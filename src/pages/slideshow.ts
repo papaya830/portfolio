@@ -4,7 +4,7 @@ export function plusSlides(n: number) {
     showSlides(slideIndex += n);
 }
 
-function showSlides(n: number) {
+export function showSlides(n: number) {
     let slides = document.getElementsByClassName("images") as HTMLCollectionOf<HTMLElement>;
 
     // Add check to ensure slides exist
