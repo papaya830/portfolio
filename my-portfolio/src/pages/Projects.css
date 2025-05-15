@@ -1,0 +1,111 @@
+/* Projects.css */
+.project-nav {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  margin-bottom: 30px;
+  padding: 0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.project-nav-button {
+  background-color: white;
+  color: #333;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.project-nav-button:hover {
+  background-color: #f1f1f1;
+  color: #d81b60;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.project-nav-button.active {
+  background-color: #f8bbd0;
+  color: #d81b60;
+}
+
+/* Content container */
+.content-container {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Projects list layout - vertical stack instead of grid */
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Project card styling */
+.project-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  border: 1px solid #f0f0f0;
+}
+
+.project-card h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.project-card p {
+  margin-top: 12px;
+  margin-bottom: 0;
+  font-size: 15px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Project tags */
+.project-tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.project-type-tag, .project-time-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+/* Tag colors using the provided color scheme */
+.project-type-tag.software {
+  background-color: #FFEBAE; /* Lemon Meringue */
+  color: #333;
+}
+
+.project-type-tag.firmware {
+  background-color: #FEB737; /* Honey */
+  color: #333;
+}
+
+.project-type-tag.design {
+  background-color: #A7B5FF; /* Periwinkle */
+  color: #333;
+}
+
+.project-time-tag {
+  background-color: #D4E0F0; /* Columbia */
+  color: #333;
+}

@@ -1,42 +1,232 @@
-#root {
-  max-width: 1280px;
+/* Updated CSS for arrow positioning directly against image */
+@import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Domine:wght@400..700&display=swap');
+
+.app {
+  font-family: 'Cardo', serif;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0 20px;
+}
+
+/* Title styling - centered with proper alignment */
+.home-title {
+  font-family: 'Cardo', serif;
+  font-size: 72px;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the title */
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.headliner {
+  width: 90px;
+  height: 90px;
+  margin-left: 20px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.monkey-headliner {
+  width: 77px;
+  height: 118px;
+  margin-left: 20px;
+  object-fit: cover;
+}
+
+/* Narrower Navbar styling */
+.navbar {
+  background-color: #ffcdd2; /* Light pink background */
+  padding: 8px 0; /* Reduced vertical padding */
+  margin-bottom: 20px;
+  max-width: 80%; /* Make navbar narrower than full width */
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; /* Center the navbar */
+  border-radius: 8px; /* Optional: adds rounded corners */
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center; /* Center the navigation items */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin: 0 15px; /* Reduced side margins */
+}
+
+.navbar a {
+  color: #000;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 12px; /* Reduced padding around links */
+  transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #d81b60;
+}
+
+/* Content styling - updated to not have the blue box around everything */
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.content-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.general-text {
+  flex: 1;
+  min-width: 300px;
+  max-width: 50%;
+  line-height: 1.6;
+  font-family: 'Cardo', serif;
+  font-size: 20px;
+  text-align: justify;
+  background-color: #e3f2fd; /* Light blue background just for text */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.general-text a {
+  color: #673ab7;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.general-text a:hover {
+  text-decoration: underline;
+}
+
+.self-photo-slideshow {
+  flex: 1;
+  min-width: 300px;
+  max-width: 40%;
+  position: relative;
+}
+
+.images {
+  display: none;
+  position: relative; /* Added for proper arrow positioning */
+}
+
+.images.active {
+  display: block;
+}
+
+.images img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  border: 20px solid #FDDDE6;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: block; /* Ensures the image is a block-level element */
+}
+
+/* Updated arrow styling with absolute positioning relative to image */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  padding: 8px; /* Even smaller padding */
+  color: white;
+  font-weight: bold;
+  font-size: 14px; /* Smaller font size */
+  transition: 0.6s ease;
+  user-select: none;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 2; /* Ensure arrows are above images */
+}
+
+.prev {
+  left:-2px; /* Directly against left edge */
+  border-radius: 0 3px 3px 0;
+}
+
+.next {
+  right: -25px; /* Negative value to ensure it's directly against right edge */
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Font classes */
+.cardo-regular {
+  font-family: "Cardo", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.cardo-bold {
+  font-family: "Cardo", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.cardo-regular-italic {
+  font-family: "Cardo", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .home-title {
+    font-size: 48px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .headliner {
+    width: 60px;
+    height: 60px;
+    margin-left: 0;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .monkey-headliner {
+    width: 50px;
+    height: 80px;
+    margin-left: 0;
   }
-}
 
-.card {
-  padding: 2em;
-}
+  .navbar {
+    max-width: 90%; /* Wider on mobile but still not full width */
+  }
 
-.read-the-docs {
-  color: #888;
+  .navbar ul {
+    flex-wrap: wrap;
+  }
+
+  .navbar li {
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+
+  .content-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .general-text,
+  .self-photo-slideshow {
+    max-width: 90%;
+  }
 }

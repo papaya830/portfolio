@@ -5,12 +5,6 @@ import monkeyImage from '/src/assets/images/monkey.jpg';
 const Contact = () => {
     return (
       <main>
-        <h1>
-          Chloe Yip
-          <img className="headliner" src={headImage} alt="avatar" />
-          <img className="monkey-headliner" src={monkeyImage} alt="monkey" />
-        </h1>
-
         <div className="content-container">
           <div className="general-text">
             Feel free to reach me through my personal email:
