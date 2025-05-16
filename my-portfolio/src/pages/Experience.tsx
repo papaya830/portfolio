@@ -2,15 +2,20 @@ import { useState } from 'react';
 import '/src/Experience.css';
 
 const Experience = () => {
-  const [activeTab, setActiveTab] = useState('work');
+  // Define a type for the tab options
+  type TabType = 'work' | 'leadership' | 'education';
 
-  const handleTabChange = (tab) => {
+  // State to track which tab is active
+  const [activeTab, setActiveTab] = useState<TabType>('work');
+
+  // Tab change handler with proper type annotation
+  const handleTabChange = (tab: TabType) => {
     setActiveTab(tab);
   };
 
   return (
     <main className="experience-page">
-      {/* Brief info tabs at the top */}
+      {/* Tabs at the top in a row */}
       <div className="info-tabs-container">
         <div
           className={`info-tab ${activeTab === 'work' ? 'active' : ''}`}

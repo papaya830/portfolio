@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react'; // Add this import
 import '/src/components/Navbar.css';
 import '/src/home.css';
 import { plusSlides, showSlides } from './slideshow';

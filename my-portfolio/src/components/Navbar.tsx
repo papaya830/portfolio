@@ -3,11 +3,14 @@ import { useState } from 'react';
 import './Navbar.css';
 
 const Navbar = () => {
-  // State to track which dropdown is open (if any)
-  const [openDropdown, setOpenDropdown] = useState(null);
+  // Define a type for the dropdown options
+  type DropdownType = 'about' | 'projects' | null;
 
-  // Toggle function for handling dropdowns
-  const handleToggle = (dropdown) => {
+  // State to track which dropdown is open (if any)
+  const [openDropdown, setOpenDropdown] = useState<DropdownType>(null);
+
+  // Toggle function for handling dropdowns - now with proper type annotation
+  const handleToggle = (dropdown: DropdownType) => {
     if (openDropdown === dropdown) {
       // If clicking the already open dropdown, close it
       setOpenDropdown(null);

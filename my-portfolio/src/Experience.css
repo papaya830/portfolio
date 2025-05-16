@@ -1,152 +1,127 @@
-/* Experience.css - Reduced vertical space */
-
+/* Experience.css */
 .experience-page {
+  display: flex;
+  flex-direction: column;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 5px;
-  font-family: 'Cardo', serif;
+  padding: 2rem;
 }
 
-/* Info tabs at the top */
+/* Tabs container */
 .info-tabs-container {
   display: flex;
-  justify-content: space-between;
-  gap: 5px;
-  margin-bottom: 15px;
-  padding: 8px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
+  flex-direction: row; /* Make tabs display horizontally */
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .info-tab {
-  flex: 1;
-  padding: 8px;
-  background-color: #f0f8ff;
-  border-radius: 6px;
+  background-color: #f5f7fb;
+  border-radius: 8px;
+  padding: 1.5rem;
   cursor: pointer;
-  transition: all 0.2s ease;
-  /* Remove min-height completely */
-  min-height: auto;
-  /* Reduce vertical padding significantly */
-  padding-top: 6px;
-  padding-bottom: 6px;
-}
-
-.info-tab.active {
-  background-color: #e6f0ff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  flex: 1; /* Each tab takes equal space */
 }
 
 .info-tab:hover {
-  transform: translateY(-2px);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.info-tab.active {
+  background-color: #e0e7ff;
+  border-left: 4px solid #4f46e5;
 }
 
 .info-tab h3 {
-  color: #4B0082;
-  font-size: 18px;
-  /* Reduce margin */
-  margin: 0 0 3px 0;
+  margin-top: 0;
+  color: #1e293b;
+  font-size: 1.25rem;
 }
 
 .info-tab p {
-  font-size: 14px;
-  margin: 0;
-  line-height: 1.2; /* Even tighter line height */
-}
-
-/* Content section */
-.content-display {
-  background-color: #f0f8ff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-  padding: 12px;
-  /* Remove fixed height completely */
-  min-height: auto;
-  /* Add small padding */
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.section-title {
-  font-size: 24px;
-  color: #333;
-  margin: 0 0 10px 0; /* Further reduced */
-  padding-bottom: 5px;
-  border-bottom: 2px solid #4B0082;
-  display: inline-block;
-}
-
-.section-content {
-  padding: 0 8px;
-}
-
-.job-title {
-  font-size: 20px;
-  margin: 0 0 2px 0;
-  color: #333;
-}
-
-.second-job {
-  margin-top: 15px; /* Further reduced */
-  padding-top: 10px; /* Further reduced */
-  border-top: 1px solid #e0e0e0;
-}
-
-.company {
-  font-size: 16px;
-  margin: 0 0 2px 0;
-}
-
-.company-note {
-  font-weight: normal;
-  margin-left: 3px;
-}
-
-.date {
-  font-style: italic;
-  color: #666;
-  margin: 0 0 5px 0;
-  font-size: 14px;
-}
-
-.experience-list {
-  padding-left: 15px;
-  margin: 5px 0;
-}
-
-.experience-list li {
-  margin-bottom: 4px; /* Further reduced */
-  line-height: 1.2; /* Further reduced */
-  font-size: 15px;
-}
-
-/* Make sure there's no big margins at the bottom of the last elements */
-.experience-list:last-child,
-.experience-list li:last-child,
-p:last-child {
+  color: #64748b;
+  font-size: 0.95rem;
   margin-bottom: 0;
 }
 
-/* Link styling */
-a {
-  color: #6a5acd;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.15s ease;
+/* Content display */
+.content-display {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
 }
 
-a:hover {
-  color: #FF69B4;
+.section-title {
+  color: #1e293b;
+  font-size: 1.75rem;
+  margin-top: 0;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.job-title {
+  color: #334155;
+  font-size: 1.35rem;
+  margin-bottom: 0.25rem;
+}
+
+.second-job {
+  margin-top: 2.5rem;
+}
+
+.company {
+  color: #475569;
+  font-size: 1.1rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.company a {
+  color: #4f46e5;
+  text-decoration: none;
+}
+
+.company a:hover {
+  text-decoration: underline;
+}
+
+.company-note {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+}
+
+.date {
+  color: #64748b;
+  font-style: italic;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.experience-list {
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+}
+
+.experience-list li {
+  margin-bottom: 0.75rem;
+  color: #334155;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .info-tabs-container {
     flex-direction: column;
-    gap: 3px;
   }
 
   .info-tab {
-    padding: 6px;
+    margin-bottom: 1rem;
+  }
+
+  .content-display {
+    padding: 1.5rem;
   }
 }
