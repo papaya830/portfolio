@@ -1,12 +1,10 @@
 import '/src/index.css';
-import headImage from '/src/assets/images/head-new.jpg';
-import monkeyImage from '/src/assets/images/monkey.jpg';
 
 const Contact = () => {
     return (
       <main>
         <div className="content-container">
-          <div className="general-text">
+          <div className="a-text">
             Feel free to reach me through my personal email:
             <a href="mailto:chloecocoyip@gmail.com"> chloecocoyip@gmail.com</a> <br /><br />
 

@@ -1,0 +1,152 @@
+/* Experience.css - Reduced vertical space */
+
+.experience-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5px;
+  font-family: 'Cardo', serif;
+}
+
+/* Info tabs at the top */
+.info-tabs-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  margin-bottom: 15px;
+  padding: 8px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.info-tab {
+  flex: 1;
+  padding: 8px;
+  background-color: #f0f8ff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  /* Remove min-height completely */
+  min-height: auto;
+  /* Reduce vertical padding significantly */
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.info-tab.active {
+  background-color: #e6f0ff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+}
+
+.info-tab:hover {
+  transform: translateY(-2px);
+}
+
+.info-tab h3 {
+  color: #4B0082;
+  font-size: 18px;
+  /* Reduce margin */
+  margin: 0 0 3px 0;
+}
+
+.info-tab p {
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.2; /* Even tighter line height */
+}
+
+/* Content section */
+.content-display {
+  background-color: #f0f8ff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  padding: 12px;
+  /* Remove fixed height completely */
+  min-height: auto;
+  /* Add small padding */
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.section-title {
+  font-size: 24px;
+  color: #333;
+  margin: 0 0 10px 0; /* Further reduced */
+  padding-bottom: 5px;
+  border-bottom: 2px solid #4B0082;
+  display: inline-block;
+}
+
+.section-content {
+  padding: 0 8px;
+}
+
+.job-title {
+  font-size: 20px;
+  margin: 0 0 2px 0;
+  color: #333;
+}
+
+.second-job {
+  margin-top: 15px; /* Further reduced */
+  padding-top: 10px; /* Further reduced */
+  border-top: 1px solid #e0e0e0;
+}
+
+.company {
+  font-size: 16px;
+  margin: 0 0 2px 0;
+}
+
+.company-note {
+  font-weight: normal;
+  margin-left: 3px;
+}
+
+.date {
+  font-style: italic;
+  color: #666;
+  margin: 0 0 5px 0;
+  font-size: 14px;
+}
+
+.experience-list {
+  padding-left: 15px;
+  margin: 5px 0;
+}
+
+.experience-list li {
+  margin-bottom: 4px; /* Further reduced */
+  line-height: 1.2; /* Further reduced */
+  font-size: 15px;
+}
+
+/* Make sure there's no big margins at the bottom of the last elements */
+.experience-list:last-child,
+.experience-list li:last-child,
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* Link styling */
+a {
+  color: #6a5acd;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: #FF69B4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .info-tabs-container {
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .info-tab {
+    padding: 6px;
+  }
+}
