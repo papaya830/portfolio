@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { showSlides, plusSlides } from './Slideshow';
 import '/src/Experience.css';
 
 const Experience = () => {
@@ -8,10 +9,109 @@ const Experience = () => {
   // State to track which tab is active
   const [activeTab, setActiveTab] = useState<TabType>('work');
 
+  // State to track if images are loaded
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  // Reference to track if slideshow is initialized
+  const slideshowInitialized = useRef(false);
+
+  // Define image paths centrally for better management
+  const imagePaths = [
+    "src/assets/images/projects/ai-fer.png",
+    "src/assets/images/projects/ai-res.png"
+  ];
+
+  // Function to preload images
+  const preloadImages = (srcs: string[]) => {
+    const promises = srcs.map(src => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(src);
+        img.onerror = () => {
+          console.warn(`Failed to preload image: ${src}`);
+          resolve(src); // Resolve anyway to prevent Promise.all from failing
+        };
+        img.src = src;
+      });
+    });
+
+    return Promise.all(promises);
+  };
+
   // Tab change handler with proper type annotation
   const handleTabChange = (tab: TabType) => {
     setActiveTab(tab);
+
+    // If switching to education tab, initialize slideshow after DOM update
+    if (tab === 'education') {
+      // First preload the images
+      setImagesLoaded(false);
+      preloadImages(imagePaths)
+        .then(() => {
+          setImagesLoaded(true);
+          // Use setTimeout to ensure DOM is updated before initializing slideshow
+          setTimeout(() => {
+            if (!slideshowInitialized.current) {
+              showSlides(1); // Initialize with first slide
+              slideshowInitialized.current = true;
+
+              // Add dot indicators
+              addDotIndicators();
+            }
+          }, 300); // Increased timeout for more reliability
+        });
+    }
   };
+
+  // Function to add dot indicators for the slideshow
+  const addDotIndicators = () => {
+    const slides = document.getElementsByClassName("images");
+    const dotsContainer = document.querySelector('.slideshow-dots');
+
+    if (!dotsContainer || !slides.length) return;
+
+    // Clear existing dots
+    dotsContainer.innerHTML = '';
+
+    // Add a dot for each slide
+    for (let i = 0; i < slides.length; i++) {
+      const dot = document.createElement('span');
+      dot.className = 'slideshow-dot';
+      dot.onclick = function() {
+        currentSlide(i + 1);
+      };
+      dotsContainer.appendChild(dot);
+    }
+
+    // Make the first dot active
+    const dots = document.getElementsByClassName("slideshow-dot");
+    if (dots.length > 0) {
+      dots[0].className += " active";
+    }
+  };
+
+  // Function to go to a specific slide (needed for dot navigation)
+  const currentSlide = (n: number) => {
+    showSlides(n);
+  };
+
+  // Initialize slideshow if education tab is active by default
+  useEffect(() => {
+    if (activeTab === 'education') {
+      setImagesLoaded(false);
+      preloadImages(imagePaths)
+        .then(() => {
+          setImagesLoaded(true);
+          setTimeout(() => {
+            if (!slideshowInitialized.current) {
+              showSlides(1);
+              slideshowInitialized.current = true;
+              addDotIndicators();
+            }
+          }, 300);
+        });
+    }
+  }, [activeTab]);
 
   return (
     <main className="experience-page">
@@ -102,15 +202,72 @@ const Experience = () => {
           <div className="content-section">
             <h2 className="section-title">Educational Programs</h2>
             <div className="section-content">
-              <h3 className="job-title">Full Stack Development Bootcamp</h3>
-              <p className="company">Tech Accelerator Program</p>
-              <p className="date">Summer 2023 (8 weeks)</p>
+              <h3 className="job-title">Student</h3>
+              <p className="company">AI4ALL</p>
+              <p className="date">Summer 2021 (2 weeks)</p>
               <ul className="experience-list">
-                <li>Completed an intensive bootcamp focused on modern web development technologies</li>
-                <li>Built full-stack applications using React, Node.js, and MongoDB</li>
-                <li>Collaborated with peers on team projects simulating real-world development workflows</li>
-                <li>Learned industry best practices for testing, deployment, and version control</li>
+                <li>Received a full ride scholarship to participate in the AI4ALL 2021 SFU cohort, a program
+                designed to teach high school students about AI</li>
+                <li>Collaborated in a group of 4 to train a convolutional neural network with the FER2013 dataset to recognize human emotions in images</li>
+                <li>Increased training accuracy from 45% to 50% by experimenting with different language models</li>
+                <li>
+                  <a href="https://sites.google.com/view/computer-vision-fer2013/home?authuser=0" target="_blank">
+                    Learn more about the project here
+                  </a>
+                </li>
               </ul>
+
+              {/* Project Slideshow */}
+              <div className="project-slideshow">
+                <h4>Project Visuals</h4>
+
+                {/* Loading indicator */}
+                {!imagesLoaded && (
+                  <div className="slideshow-loading">
+                    <div className="loading-spinner"></div>
+                    <p>Loading images...</p>
+                  </div>
+                )}
+
+                <div className="slideshow-container">
+                  {/* Slide 1 */}
+                  <div className="images fade">
+                    <img
+                      src={imagePaths[0]}
+                      alt="Explanation of FER2013"
+                      style={{ width: '100%' }}
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        console.warn(`Image failed to load: ${imagePaths[0]}`);
+                        // You could set a fallback image here if needed
+                      }}
+                    />
+                    <div className="caption">Explanation of FER2013</div>
+                  </div>
+
+                  {/* Slide 2 */}
+                  <div className="images fade">
+                    <img
+                      src={imagePaths[1]}
+                      alt="Results"
+                      style={{ width: '100%' }}
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        console.warn(`Image failed to load: ${imagePaths[1]}`);
+                        // You could set a fallback image here if needed
+                      }}
+                    />
+                    <div className="caption">Our results!</div>
+                  </div>
+
+                  {/* Navigation buttons */}
+                  <a className="prev" onClick={() => plusSlides(-1)}>&#10094;</a>
+                  <a className="next" onClick={() => plusSlides(1)}>&#10095;</a>
+                </div>
+
+                {/* Dot indicators container */}
+                <div className="slideshow-dots"></div>
+              </div>
             </div>
           </div>
         )}
