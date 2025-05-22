@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ebb2e365-ecbf-4ab3-bcbb-3d2f0be4ef6b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-portfolio/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/my-portfolio/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-portfolio/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/my-portfolio/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-portfolio/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-portfolio/src/App.tsx" afterDir="false" />
@@ -15,6 +16,7 @@
       <change beforePath="$PROJECT_DIR$/my-portfolio/src/pages/Contact.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-portfolio/src/pages/Contact.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-portfolio/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-portfolio/src/pages/Home.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-portfolio/src/pages/Projects.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-portfolio/src/pages/Projects.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-portfolio/src/pages/slideshow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-portfolio/src/pages/slideshow.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

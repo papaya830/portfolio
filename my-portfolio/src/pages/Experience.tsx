@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { showSlides, plusSlides } from './Slideshow';
+import { useState, useEffect, useRef } from 'react';
+import { showSlides, plusSlides } from './slideshow';
 import '/src/Experience.css';
 
 const Experience = () => {
@@ -24,7 +24,7 @@ const Experience = () => {
   // Function to preload images
   const preloadImages = (srcs: string[]) => {
     const promises = srcs.map(src => {
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         const img = new Image();
         img.onload = () => resolve(src);
         img.onerror = () => {
@@ -236,8 +236,7 @@ const Experience = () => {
                       src={imagePaths[0]}
                       alt="Explanation of FER2013"
                       style={{ width: '100%' }}
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
+                      onError={() => {
                         console.warn(`Image failed to load: ${imagePaths[0]}`);
                         // You could set a fallback image here if needed
                       }}
@@ -251,8 +250,7 @@ const Experience = () => {
                       src={imagePaths[1]}
                       alt="Results"
                       style={{ width: '100%' }}
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
+                      onError={() => {
                         console.warn(`Image failed to load: ${imagePaths[1]}`);
                         // You could set a fallback image here if needed
                       }}
