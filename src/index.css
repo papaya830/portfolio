@@ -1,129 +1,24 @@
-/* src/index.css */
-@import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Domine:wght@400..700&display=swap');
+/* Reset approach for home page layout */
 
-body {
-  margin: 0;
-  font-family: 'Cardo', serif;
-}
-
-main {
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
-h1 {
-  font-family: 'Cardo', serif, italic;
-  font-size: 72px;
-  margin: 0;
-  margin-left: 15%;
-  display: inline-flex;
-  align-items: center;
-}
-
-.headliner {
-  width: 90px;
-  height: 90px;
-  margin-left: 20px;
-}
-
-.monkey-headliner {
-  width: 77px;
-  height: 118px;
-  margin-left: 20px;
+html {
+  overflow-y: scroll;
 }
 
 .content-container {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  gap: 30px;
 }
 
-.general-text {
-  position: relative;
+.a-text {
+  flex: 0 0 60%; /* Don't grow, don't shrink, take 60% width */
   font-family: 'Cardo', serif;
   font-size: 20px;
   text-align: justify;
-  width: 55%;
   padding: 20px;
   background-color: #F0F8FF;
   border-radius: 30px;
-  margin-left: 10%;
+  box-sizing: border-box;
 }
-
-.cardo-regular {
-  font-family: "Cardo", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.cardo-bold {
-  font-family: "Cardo", serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.cardo-regular-italic {
-  font-family: "Cardo", serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.self-photo-slideshow {
-  position: relative;
-  max-width: 100%;
-  width: 40%;
-}
-
-.images {
-  display: none;
-}
-
-.images img {
-  width: 300px;
-  height: 400px;
-  border: 20px solid #FDDDE6
-}
-
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-/*
-Adjust how the links look
-*/
-a {
-  text-decoration: none;
-  font-weight: bold;
-}
-
-a:hover {
-  color: #FF69B4;
-}
-
-.about {
-  background-color: #e8d5f2;
-  min-height: 100vh;
-}
-
-

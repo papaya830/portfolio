@@ -1,0 +1,152 @@
+/* Projects.css */
+
+.projects-page {
+  padding: 1.5rem 0 4rem;
+}
+
+.projects-inner {
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+/* Header */
+.projects-header {
+  margin-bottom: 2rem;
+}
+
+.projects-title {
+  font-family: 'Cardo', serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 0.3rem;
+  letter-spacing: -0.01em;
+}
+
+.projects-subtitle {
+  font-size: 0.95rem;
+  color: #888;
+  margin: 0;
+}
+
+/* Filter pills */
+.category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.filter-pill {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1.5px solid #ddd;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: white;
+  color: #333;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.filter-pill:hover {
+  border-color: #aaa;
+}
+
+.filter-pill.cat-all.active      { background: #1a1a2e; color: white; border-color: #1a1a2e; }
+.filter-pill.cat-software.active { background: #FFEBAE; color: #333; border-color: #FEB737; }
+.filter-pill.cat-firmware.active { background: #FEB737; color: #333; border-color: #c98c00; }
+.filter-pill.cat-design.active   { background: #A7B5FF; color: #333; border-color: #6a7fe8; }
+
+/* Count */
+.results-count {
+  font-size: 0.82rem;
+  color: #aaa;
+  margin: 0 0 1.6rem;
+}
+
+/* Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 16px;
+  justify-content: start;
+}
+
+/* Card */
+.project-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px 22px;
+  border: 1.5px solid #ebebeb;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.project-card:hover {
+  border-color: #ccc;
+  transform: translateY(-2px);
+}
+
+.card-software { border-left: 4px solid #FEB737; }
+.card-firmware { border-left: 4px solid #FFA040; }
+.card-design   { border-left: 4px solid #A7B5FF; }
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.card-type-badge {
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.card-type-badge.cat-software { background: #FFEBAE; color: #333; }
+.card-type-badge.cat-firmware { background: #FEB737; color: #333; }
+.card-type-badge.cat-design   { background: #A7B5FF; color: #333; }
+
+.card-time {
+  font-size: 0.75rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+.card-title {
+  font-family: 'Cardo', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+.card-desc {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+
+.card-link {
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: #d81b60;
+  text-decoration: none;
+  margin-top: 2px;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .projects-grid { grid-template-columns: 1fr; }
+}

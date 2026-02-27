@@ -1,0 +1,31 @@
+.contact-page {
+  padding: 1.5rem 0 4rem;
+  display: block;
+  justify-content: unset;
+}
+
+.contact-inner {
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+.a-text {
+  font-family: 'Cardo', serif;
+  font-size: 20px;
+  padding: 24px 28px;
+  background-color: #F0F8FF;
+  border-radius: 20px;
+  line-height: 1.7;
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.a-text a {
+  color: #5b4bcc;
+  text-decoration: underline;
+}
+
+.a-text a:hover {
+  opacity: 0.75;
+}

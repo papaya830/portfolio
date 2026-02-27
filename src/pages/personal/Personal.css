@@ -1,0 +1,165 @@
+/* Personal.css — the fun side */
+
+.personal-page {
+  padding: 1.5rem 0 4rem;
+}
+
+.personal-inner {
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+/* Back link */
+.back-link {
+  display: inline-block;
+  font-family: 'Cardo', serif;
+  font-size: 14px;
+  font-style: italic;
+  color: #aaa;
+  text-decoration: none;
+  margin-bottom: 2.5rem;
+  transition: color 0.15s ease;
+}
+
+.back-link:hover {
+  color: #555;
+}
+
+/* Header */
+.personal-header {
+  margin-bottom: 3rem;
+}
+
+.personal-title {
+  font-family: 'Cardo', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.02em;
+}
+
+.personal-subtitle {
+  font-size: 0.95rem;
+  color: #888;
+  margin: 0;
+}
+
+/* Sections container — 2 column grid */
+.personal-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Individual section cards */
+.personal-section {
+  border-radius: 16px;
+  padding: 26px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1.5px solid transparent;
+}
+
+/* Color per section */
+.section-athletics {
+  background-color: #FFF4DC;
+  border-color: #FEB737;
+}
+
+.section-writing {
+  background-color: #F0F8FF;
+  border-color: #A7B5FF;
+}
+
+.section-travel {
+  background-color: #F0FFF8;
+  border-color: #2ABFAA;
+}
+
+.section-interests {
+  background-color: #FFF0F5;
+  border-color: #F8BBD0;
+}
+
+/* Section label */
+.section-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #999;
+}
+
+.section-athletics .section-label  { color: #c98c00; }
+.section-writing .section-label    { color: #6a7fe8; }
+.section-travel .section-label     { color: #1a9b8c; }
+.section-interests .section-label  { color: #d81b60; }
+
+/* Section heading */
+.section-heading {
+  font-family: 'Cardo', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Section body text */
+.section-body {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Writing list */
+.writing-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.writing-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  text-decoration: none;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(167, 181, 255, 0.4);
+  transition: opacity 0.15s ease;
+}
+
+.writing-item:hover { opacity: 0.65; }
+
+.writing-title {
+  font-family: 'Cardo', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.writing-date {
+  font-size: 0.75rem;
+  color: #aaa;
+  font-style: italic;
+  white-space: nowrap;
+}
+
+.placeholder-text {
+  font-size: 0.85rem;
+  color: #bbb;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .personal-sections {
+    grid-template-columns: 1fr;
+  }
+}
