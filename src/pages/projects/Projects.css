@@ -150,3 +150,15 @@
 @media (max-width: 640px) {
   .projects-grid { grid-template-columns: 1fr; }
 }
+
+.projects-placeholder {
+  margin-top: 2rem;
+  padding: 28px 32px;
+  background: #fafafa;
+  border: 1.5px dashed #ddd;
+  border-radius: 12px;
+  font-family: 'Cardo', serif;
+  font-size: 1rem;
+  color: #999;
+  font-style: italic;
+}

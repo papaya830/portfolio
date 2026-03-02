@@ -213,14 +213,6 @@ const Experience = () => {
                 <li>Coordinated networking events connecting students with industry professionals</li>
               </ul>
 
-              <h3 className="job-title second-job">Volunteer Instructor</h3>
-              <p className="company">Code for Kids</p>
-              <p className="date">January 2023 - April 2024</p>
-              <ul className="experience-list">
-                <li>Taught introductory programming concepts to middle school students</li>
-                <li>Developed curriculum materials for Python and Scratch courses</li>
-                <li>Mentored students on small coding projects and provided technical guidance</li>
-              </ul>
             </div>
           </div>
         )}

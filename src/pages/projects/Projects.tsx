@@ -30,42 +30,9 @@ const projectsData = [
     link: "https://sites.google.com/view/computer-vision-fer2013/home?authuser=0",
     linkLabel: "View Project"
   },
-  {
-    id: 3,
-    title: "Smart Home Controller",
-    type: "Software",
-    completionTime: "3 weeks",
-    description: "A web application that controls smart home devices using React and Node.js."
-  },
-  {
-    id: 4,
-    title: "Temperature Sensor",
-    type: "Firmware",
-    completionTime: "2 weeks",
-    description: "An Arduino-based temperature monitoring system with WiFi connectivity."
-  },
-  {
-    id: 5,
-    title: "IoT Plant Monitor",
-    type: "Firmware",
-    completionTime: "3 weeks",
-    description: "ESP32-based system that monitors soil moisture and plant health."
-  },
-  {
-    id: 6,
-    title: "UX Redesign",
-    type: "Design",
-    completionTime: "1 week",
-    description: "Redesigned user interface for a mobile banking application."
-  },
-  {
-    id: 7,
-    title: "Brand Identity System",
-    type: "Design",
-    completionTime: "2 weeks",
-    description: "Complete brand identity including logo, color scheme, and style guide."
-  },
 ];
+
+const placeholderCategories = ["Firmware", "Design"];
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState<Category | 'All'>('All');
@@ -73,6 +40,8 @@ const Projects = () => {
   const filtered = activeCategory === 'All'
     ? projectsData
     : projectsData.filter(p => p.type === activeCategory);
+
+  const isPlaceholderCategory = placeholderCategories.includes(activeCategory);
 
   return (
     <main className="projects-page">
@@ -95,36 +64,43 @@ const Projects = () => {
           ))}
         </div>
 
-        <p className="results-count">
-          {filtered.length} project{filtered.length !== 1 ? 's' : ''}
-          {activeCategory !== 'All' ? ` — ${categoryConfig[activeCategory].label}` : ''}
-        </p>
-
-        <div className="projects-grid">
-          {filtered.map(project => {
-            const cfg = categoryConfig[project.type];
-            return (
-              <div key={project.id} className={`project-card card-${project.type.toLowerCase()}`}>
-                <div className="card-top">
-                  <span className={`card-type-badge ${cfg.color}`}>{cfg.label}</span>
-                  <span className="card-time">{project.completionTime}</span>
-                </div>
-                <h3 className="card-title">{project.title}</h3>
-                <p className="card-desc">{project.description}</p>
-                {'link' in project && project.link && (
-                  <a
-                    href={project.link as string}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="card-link"
-                  >
-                    {(project as any).linkLabel} →
-                  </a>
-                )}
-              </div>
-            );
-          })}
-        </div>
+        {isPlaceholderCategory ? (
+          <div className="projects-placeholder">
+            <p>i actually have some projects here — will update when i find the time 🙂</p>
+          </div>
+        ) : (
+          <>
+            <p className="results-count">
+              {filtered.length} project{filtered.length !== 1 ? 's' : ''}
+              {activeCategory !== 'All' ? ` — ${categoryConfig[activeCategory].label}` : ''}
+            </p>
+            <div className="projects-grid">
+              {filtered.map(project => {
+                const cfg = categoryConfig[project.type];
+                return (
+                  <div key={project.id} className={`project-card card-${project.type.toLowerCase()}`}>
+                    <div className="card-top">
+                      <span className={`card-type-badge ${cfg.color}`}>{cfg.label}</span>
+                      <span className="card-time">{project.completionTime}</span>
+                    </div>
+                    <h3 className="card-title">{project.title}</h3>
+                    <p className="card-desc">{project.description}</p>
+                    {'link' in project && project.link && (
+                      <a
+                        href={project.link as string}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="card-link"
+                      >
+                        {(project as any).linkLabel} →
+                      </a>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </>
+        )}
       </div>
     </main>
   );
