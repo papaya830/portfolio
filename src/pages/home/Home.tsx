@@ -49,6 +49,15 @@ const Home = () => {
           </div>
         </div>
 
+        <div className="fundraiser-blob">
+          <span className="fundraiser-emoji">🏃‍♀️</span>
+          <p>
+            i'm running <strong>100 km this May</strong> for the <strong>Million Reasons Run</strong> challenge to raise money for BC Children's Hospital.{" "}
+            <a href="https://www.millionreasons.run/fundraisers/chloeyip/mrr-26" target="_blank" rel="noopener noreferrer">check out my page</a>{" "}
+            if you're interested in donating 💛
+          </p>
+        </div>
+
         <div className="instagram-blob">
           <span className="insta-emoji">📸</span>
           <p>into creative stuff? check out my instagram <a href="https://www.instagram.com/creatingwithcy" target="_blank" rel="noopener noreferrer">@creatingwithcy</a> for fun things i make outside of code ✨</p>
