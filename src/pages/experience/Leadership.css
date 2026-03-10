@@ -51,3 +51,9 @@
   margin-bottom: 0.75rem;
   color: #334155;
 }
+
+.section-content p {
+  color: #334155;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
