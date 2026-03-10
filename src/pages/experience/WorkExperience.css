@@ -1,0 +1,56 @@
+.section-title {
+  color: #1e293b;
+  font-size: 1.75rem;
+  margin-top: 0;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.job-title {
+  color: #334155;
+  font-size: 1.35rem;
+  margin-bottom: 0.25rem;
+}
+
+.second-job {
+  margin-top: 2.5rem;
+}
+
+.company {
+  color: #475569;
+  font-size: 1.1rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.company a {
+  color: #4f46e5;
+  text-decoration: none;
+}
+
+.company a:hover {
+  text-decoration: underline;
+}
+
+.company-note {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+}
+
+.date {
+  color: #64748b;
+  font-style: italic;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.experience-list {
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+}
+
+.experience-list li {
+  margin-bottom: 0.75rem;
+  color: #334155;
+}
