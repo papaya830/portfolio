@@ -30,18 +30,18 @@
 }
 
 .info-tab.active {
-  background-color: #e0e7ff;
-  border-left: 4px solid #4f46e5;
+  background-color: #ffe4e1;
+  border-left: 4px solid #E6B2C8;
 }
 
 .info-tab h3 {
   margin-top: 0;
-  color: #1e293b;
+  color: #2E1A0E;
   font-size: 1.25rem;
 }
 
 .info-tab p {
-  color: #64748b;
+  color: #2E1A0E;
   font-size: 0.95rem;
   margin-bottom: 0;
 }
@@ -59,5 +59,11 @@
   }
   .content-display {
     padding: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .experience-page {
+    padding: 1rem 0 3rem;
   }
 }

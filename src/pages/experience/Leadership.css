@@ -2,7 +2,7 @@
 /* Shared styles inherited from WorkExperience.css via Experience.css */
 
 .section-title {
-  color: #1e293b;
+  color: #2E1A0E;
   font-size: 1.75rem;
   margin-top: 0;
   padding-bottom: 1rem;
@@ -10,7 +10,7 @@
 }
 
 .job-title {
-  color: #334155;
+  color: #2E1A0E;
   font-size: 1.35rem;
   margin-bottom: 0.25rem;
 }
@@ -20,23 +20,28 @@
 }
 
 .company {
-  color: #475569;
+  color: #2E1A0E;
   font-size: 1.1rem;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
 }
 
 .company a {
-  color: #4f46e5;
+  display: inline-block;
+  color: #4B3D3A;
+  padding: 2px 10px;
+  border-radius: 999px;
   text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.15s ease;
 }
 
 .company a:hover {
-  text-decoration: underline;
+  background-color: #F2C2C2;
 }
 
 .date {
-  color: #64748b;
+  color: #2E1A0E;
   font-style: italic;
   margin-top: 0.25rem;
   margin-bottom: 1rem;
@@ -49,11 +54,11 @@
 
 .experience-list li {
   margin-bottom: 0.75rem;
-  color: #334155;
+  color: #2E1A0E;
 }
 
 .section-content p {
-  color: #334155;
+  color: #2E1A0E;
   line-height: 1.75;
   margin-bottom: 1rem;
 }

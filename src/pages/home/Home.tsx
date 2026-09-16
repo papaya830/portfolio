@@ -27,7 +27,7 @@ const Home = () => {
         <div className="home-body">
           <div className="home-text">
             <p>
-              Third year <a href="https://www.sfu.ca/fas/study/future-undergraduates/programs/major/software-systems-bachelor-science.html">Software Systems</a> major at SFU doing an engineering minor in Computer and Electronics design. I'm interested in pursuing a career in software development, technical management, and computer engineering.
+              Fifth year <a href="https://www.sfu.ca/fas/study/future-undergraduates/programs/major/software-systems-bachelor-science.html">Software Systems</a> major at SFU doing an engineering minor in Computer and Electronics design. I'm interested in pursuing a career in software development, robotics, and technical management.
             </p>
             <p>
               Dive into my <Link to="/projects">Projects</Link> to see what I've built, or check out my <Link to="/experience">Experience</Link> to explore my professional journey. <Link to="/contact">Say hi</Link> if you want to connect.
@@ -49,16 +49,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="fundraiser-blob">
-          <span className="fundraiser-emoji">🏃‍♀️</span>
-          <p>
-            i'm running <strong>100 km this May</strong> for the <strong>Million Reasons Run</strong> challenge to raise money for BC Children's Hospital.{" "}
-            <a href="https://www.millionreasons.run/fundraisers/chloeyip/mrr-26" target="_blank" rel="noopener noreferrer">check out my page</a>{" "}
-            if you're interested in donating 💛
-          </p>
-        </div>
-
-        <div className="instagram-blob">
+<div className="instagram-blob">
           <span className="insta-emoji">📸</span>
           <p>into creative stuff? check out my instagram <a href="https://www.instagram.com/creatingwithcy" target="_blank" rel="noopener noreferrer">@creatingwithcy</a> for fun things i make outside of code ✨</p>
         </div>

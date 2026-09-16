@@ -86,3 +86,20 @@
   border-radius: 6px;
   color: #d81b60;
 }
+
+@media (max-width: 640px) {
+  .navbar {
+    width: 100%;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 8px 6px;
+    gap: 0;
+  }
+
+  .nav-link,
+  .dropdown-button {
+    font-size: 15px;
+    padding: 8px 10px;
+    white-space: nowrap;
+  }
+}
