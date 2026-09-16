@@ -20,21 +20,26 @@ const Home = () => {
       <div className="home-inner">
 
         <div className="home-header">
-          <h1 className="home-title-text">hi, i'm chloe</h1>
-          <p className="home-subtitle">software systems student at SFU</p>
+          <h1 className="home-title-text">Hi, I'm Chloe</h1>
+          <p className="home-subtitle">5th year Software Systems student <a href="https://www.sfu.ca/fas/study/future-undergraduates/programs/major/software-systems-bachelor-science.html">Software Systems</a> at Simon Fraser University</p>
+          <p className="home-subtitle">Engineering minor in Computer and Electronics design</p>
         </div>
 
         <div className="home-body">
           <div className="home-text">
             <p>
-              Fifth year <a href="https://www.sfu.ca/fas/study/future-undergraduates/programs/major/software-systems-bachelor-science.html">Software Systems</a> major at SFU doing an engineering minor in Computer and Electronics design. I'm interested in pursuing a career in software development, robotics, and technical management.
-            </p>
+                I’m interested in building software that interacts with the real world through robotics. 
+                I’m hoping to grow as a software developer while eventually taking on more technical leadership. 
+                I want to build technology that makes a meaningful difference in people’s lives and the world around us.              
+                </p>
             <p>
               Dive into my <Link to="/projects">Projects</Link> to see what I've built, or check out my <Link to="/experience">Experience</Link> to explore my professional journey. <Link to="/contact">Say hi</Link> if you want to connect.
             </p>
-            <Link to="/personal" className="personal-side-btn">
-              there's more to me than this →
-            </Link>
+
+            <div className="instagram-blob">
+              <span className="insta-emoji">📸</span>
+              <p>into creative stuff? check out my instagram <a href="https://www.instagram.com/creatingwithcy" target="_blank" rel="noopener noreferrer">@creatingwithcy</a> for fun things i make outside of code ✨</p>
+            </div>
           </div>
 
           <div className="slideshow-container">
@@ -47,11 +52,6 @@ const Home = () => {
             <a className="slide-arrow prev-arrow" onClick={() => plusSlides(-1)}>&#10094;</a>
             <a className="slide-arrow next-arrow" onClick={() => plusSlides(1)}>&#10095;</a>
           </div>
-        </div>
-
-<div className="instagram-blob">
-          <span className="insta-emoji">📸</span>
-          <p>into creative stuff? check out my instagram <a href="https://www.instagram.com/creatingwithcy" target="_blank" rel="noopener noreferrer">@creatingwithcy</a> for fun things i make outside of code ✨</p>
         </div>
 
       </div>

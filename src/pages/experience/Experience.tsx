@@ -10,17 +10,17 @@ const tabs: { id: TabType; title: string; desc: string }[] = [
   {
     id: 'work',
     title: 'Work Experience',
-    desc: "Part-time roles and co-op positions that have shaped my professional journey in the tech industry.",
+    desc: "Part-time roles and co-op positions in tech and other fun stuff.",
   },
   {
     id: 'leadership',
     title: 'Leadership & Volunteering',
-    desc: "Club leadership experience and volunteer activities where I've contributed to communities and developed soft skills.",
+    desc: "Club leadership experience and volunteer activities.",
   },
   {
     id: 'education',
     title: 'Educational Programs',
-    desc: "Specialized learning opportunities and bootcamps where I've expanded my technical knowledge.",
+    desc: "Specialized learning opportunities and bootcamps.",
   },
 ];
 

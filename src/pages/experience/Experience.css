@@ -1,5 +1,3 @@
-/* Experience.css — tab layout only */
-
 .experience-page {
   display: flex;
   flex-direction: column;
@@ -36,12 +34,15 @@
 
 .info-tab h3 {
   margin-top: 0;
-  color: #2E1A0E;
+  margin-bottom: 0.75rem;
+  color: #3C2416;
   font-size: 1.25rem;
+  line-height: 1.3;
+  min-height: 3.25rem;
 }
 
 .info-tab p {
-  color: #2E1A0E;
+  color: #3C2416;
   font-size: 0.95rem;
   margin-bottom: 0;
 }

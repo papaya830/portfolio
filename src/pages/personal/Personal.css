@@ -22,7 +22,7 @@
 }
 
 .back-link:hover {
-  color: #2E1A0E;
+  color: #3C2416;
 }
 
 /* Header */
@@ -34,7 +34,7 @@
   font-family: 'Cardo', serif;
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
-  color: #2E1A0E;
+  color: #3C2416;
   margin: 0 0 0.4rem;
   letter-spacing: -0.02em;
 }
@@ -102,7 +102,7 @@
   font-family: 'Cardo', serif;
   font-size: 1.4rem;
   font-weight: 700;
-  color: #2E1A0E;
+  color: #3C2416;
   margin: 0;
   line-height: 1.2;
 }
@@ -110,7 +110,7 @@
 /* Section body text */
 .section-body {
   font-size: 0.9rem;
-  color: #2E1A0E;
+  color: #3C2416;
   line-height: 1.65;
   margin: 0;
 }
@@ -140,7 +140,7 @@
   font-family: 'Cardo', serif;
   font-size: 0.95rem;
   font-weight: 700;
-  color: #2E1A0E;
+  color: #3C2416;
 }
 
 .writing-date {

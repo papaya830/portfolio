@@ -18,7 +18,7 @@
   font-family: 'Cardo', serif;
   font-size: 2.6rem;
   font-weight: 700;
-  color: #2E1A0E;
+  color: #3C2416;
   margin: 0 0 0.3rem;
   letter-spacing: -0.01em;
 }
@@ -45,7 +45,7 @@
   font-weight: 500;
   cursor: pointer;
   background: white;
-  color: #2E1A0E;
+  color: #3C2416;
   transition: all 0.15s ease;
   font-family: inherit;
 }
@@ -55,9 +55,9 @@
 }
 
 .filter-pill.cat-all.active      { background: #1a1a2e; color: white; border-color: #1a1a2e; }
-.filter-pill.cat-software.active { background: #FCEABC; color: #2E1A0E; border-color: #FECC64; }
-.filter-pill.cat-firmware.active { background: #FA9058; color: #2E1A0E; border-color: #C87346; }
-.filter-pill.cat-design.active   { background: #B5D8FF; color: #2E1A0E; border-color: #95CAFC; }
+.filter-pill.cat-software.active { background: #FCEABC; color: #3C2416; border-color: #FECC64; }
+.filter-pill.cat-firmware.active { background: #FA9058; color: #3C2416; border-color: #C87346; }
+.filter-pill.cat-design.active   { background: #B5D8FF; color: #3C2416; border-color: #95CAFC; }
 
 /* Count */
 .results-count {
@@ -114,9 +114,9 @@
   font-weight: 600;
 }
 
-.card-type-badge.cat-software { background: #FCEABC; color: #2E1A0E; }
-.card-type-badge.cat-firmware { background: #FA9058; color: #2E1A0E; }
-.card-type-badge.cat-design   { background: #B5D8FF; color: #2E1A0E; }
+.card-type-badge.cat-software { background: #FCEABC; color: #3C2416; }
+.card-type-badge.cat-firmware { background: #FA9058; color: #3C2416; }
+.card-type-badge.cat-design   { background: #B5D8FF; color: #3C2416; }
 
 .card-time {
   font-size: 0.75rem;
@@ -128,13 +128,26 @@
   font-family: 'Cardo', serif;
   font-size: 1.25rem;
   font-weight: 700;
-  color: #2E1A0E;
+  color: #3C2416;
   margin: 0;
+}
+
+.card-competition-link {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #d81b60;
+  text-decoration: none;
+  display: inline-block;
+  width: fit-content;
+}
+
+.card-competition-link:hover {
+  text-decoration: underline;
 }
 
 .card-desc {
   font-size: 0.9rem;
-  color: #2E1A0E;
+  color: #3C2416;
   line-height: 1.6;
   margin: 0;
   flex: 1;
@@ -142,7 +155,7 @@
 
 .card-details {
   font-size: 0.87rem;
-  color: #2E1A0E;
+  color: #3C2416;
   line-height: 1.6;
   margin: 4px 0 0;
   padding-top: 10px;
@@ -152,7 +165,7 @@
 
 .card-bullets {
   font-size: 0.87rem;
-  color: #2E1A0E;
+  color: #3C2416;
   line-height: 1.55;
   margin: 6px 0 0;
   padding-left: 1.1rem;
@@ -190,7 +203,7 @@
 .card-link {
   font-size: 0.83rem;
   font-weight: 600;
-  color: #2E1A0E;
+  color: #3C2416;
   text-decoration: none;
   display: inline-flex;
   align-items: center;

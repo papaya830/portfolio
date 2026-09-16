@@ -16,7 +16,7 @@
   font-family: 'Cardo', serif;
   font-size: 2.6rem;
   font-weight: 700;
-  color: #2E1A0E;
+  color: #3C2416;
   margin: 0 0 0.3rem;
   letter-spacing: -0.01em;
 }
@@ -39,7 +39,7 @@
   flex: 1;
   font-family: 'Cardo', serif;
   font-size: 18px;
-  color: #2E1A0E;
+  color: #3C2416;
   line-height: 1.75;
 }
 
@@ -124,18 +124,19 @@
 .instagram-blob {
   background: #fff0f5;
   border: 1.5px solid #ffb3c6;
-  border-radius: 14px;
-  padding: 16px 22px;
+  border-radius: 12px;
+  padding: 10px 14px;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
   font-family: 'Cardo', serif;
-  font-size: 16px;
-  color: #2E1A0E;
+  font-size: 13px;
+  color: #3C2416;
+  margin-top: 4px;
 }
 
 .insta-emoji {
-  font-size: 22px;
+  font-size: 18px;
   flex-shrink: 0;
 }
 
@@ -160,7 +161,7 @@
   gap: 14px;
   font-family: 'Cardo', serif;
   font-size: 16px;
-  color: #2E1A0E;
+  color: #3C2416;
   margin-bottom: 14px;
 }
 

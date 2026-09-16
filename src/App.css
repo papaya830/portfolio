@@ -24,7 +24,7 @@
   font-weight: 700;
   margin: 0;
   letter-spacing: -0.02em;
-  color: #2E1A0E;
+  color: #3C2416;
 }
 
 .header-images {
@@ -88,11 +88,11 @@
 }
 
 .nav-link:hover {
-  color: #2E1A0E;
+  color: #3C2416;
 }
 
 .nav-link.active {
-  color: #2E1A0E;
+  color: #3C2416;
   font-weight: 700;
 }
 

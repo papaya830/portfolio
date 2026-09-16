@@ -51,6 +51,8 @@ const projectsData = [
     title: "Jellyfish Umbrella",
     type: "Firmware",
     completionTime: "Feb–Mar 2026",
+    competitionLink: "https://www.sfu.ca/fas/study/student-life/fas-competition.html",
+    competitionLabel: "SFU FAS Speak Out Competition, 3rd place out of 15 teams",
     description: "An interactive jellyfish-shaped outreach demo for the 2026 SFU FAS Competition — placed 3rd, winning $1,250.",
     details: "Built with three teammates (Lauren Yip, Matthew Nikolic, Eric Cosma) for the 2026 SFU FAS Competition, an outreach challenge meant to spark curiosity about applied sciences in K-12 students. The team spent 300+ hours turning a clear plastic umbrella into an interactive jellyfish — kids can control tentacle movement and LED patterns through the software interface. My role was software interface and integration: I built the Bluetooth link between the umbrella and its control interface, wrote the Arduino code driving the motors and LED strip animations, and helped design the companion magazine. Placed 3rd of 15 finalist teams, winning $1,250.",
     bullets: [
@@ -66,12 +68,15 @@ const projectsData = [
     title: "EasySpeak",
     type: "Design",
     completionTime: "Feb–Mar 2024",
-    description: "An embedded device letting students anonymously flag questions in class, built for SFU's FAS Speak Out Competition.",
-    details: "Built with three teammates (Jacob Fu, Jaiden Nadem, Kai Feng Kevin Chen) for SFU's FAS Speak Out Competition, a challenge focused on equity and accessibility solutions for campus. EasySpeak is an embedded hardware and software device: a button lets a student anonymously flag a question, which triggers a buzzer to notify the instructor. We built two web dashboards — one for students, one for instructors — deployed on Google Cloud. I led the UI design and product ideation, designing the interface in Figma (not fully implemented in the final build due to time constraints). Placed 3rd overall.",
+    competitionLink: "https://www.sfu.ca/fas/study/student-life/fas-competition.html",
+    competitionLabel: "SFU FAS Speak Out Competition, 3rd place out of 15 teams",
+    description: "An embedded device that lets students anonymously flag questions during class, built for SFU's FAS Speak Out Competition.",
+    details: "I worked with three teammates to build EasySpeak as a solution for making classrooms more accessible and inclusive. Students could press a button to anonymously flag a question, which would send a notification to the instructor through a buzzer. We also built separate web dashboards for students and instructors and deployed them on Google Cloud. I led the product ideation and UI design, creating the interfaces in Figma. The full UI wasn't implemented in the final build because of time constraints, but it helped shape how we approached the product.",
     bullets: [
-      "Led UI design and product ideation for a 4-person team building an anonymous in-class question system",
-      "Designed the user interface in Figma for an embedded hardware and web-based accessibility solution",
-      "Placed 3rd overall at SFU's FAS Speak Out Competition"
+      "Led product ideation and UI design for a 4-person team",
+      "Designed the student and instructor interfaces in Figma",
+      "Built an embedded hardware + web solution focused on accessibility",
+      "Placed 3rd overall at SFU's FAS Speak Out Competition, winning $1,250"
     ],
     link: "https://lnkd.in/gQEfZ-vu",
     linkLabel: "Figma"
@@ -150,6 +155,17 @@ const Projects = () => {
                       <span className="card-time">{project.completionTime}</span>
                     </div>
                     <h3 className="card-title">{project.title}</h3>
+                    {'competitionLink' in project && project.competitionLink && (
+                      <a
+                        href={project.competitionLink as string}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="card-competition-link"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {(project as any).competitionLabel}
+                      </a>
+                    )}
                     <p className="card-desc">{project.description}</p>
                     {isExpanded && 'details' in project && project.details && (
                       <p className="card-details">{project.details}</p>

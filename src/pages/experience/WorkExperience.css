@@ -1,5 +1,5 @@
 .section-title {
-  color: #2E1A0E;
+  color: #3C2416;
   font-size: 1.75rem;
   margin-top: 0;
   padding-bottom: 1rem;
@@ -7,7 +7,7 @@
 }
 
 .job-title {
-  color: #2E1A0E;
+  color: #3C2416;
   font-size: 1.35rem;
   margin-bottom: 0.25rem;
 }
@@ -17,7 +17,7 @@
 }
 
 .company {
-  color: #2E1A0E;
+  color: #3C2416;
   font-size: 1.1rem;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -38,13 +38,13 @@
 }
 
 .company-note {
-  color: #2E1A0E;
+  color: #3C2416;
   font-size: 0.9rem;
   margin-left: 0.5rem;
 }
 
 .date {
-  color: #2E1A0E;
+  color: #3C2416;
   font-style: italic;
   margin-top: 0.25rem;
   margin-bottom: 1rem;
@@ -57,5 +57,5 @@
 
 .experience-list li {
   margin-bottom: 0.75rem;
-  color: #2E1A0E;
+  color: #3C2416;
 }
