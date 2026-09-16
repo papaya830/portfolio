@@ -35,7 +35,7 @@ const WorkExperience = () => (
       </p>
       <p className="date">May 2024 - December 2024</p>
       <ul className="experience-list">
-        <li>Contributed to the open source project, GLIDE-for-Valkey for AWS, to develop the <strong>Java, Python, Node.js, and Go</strong> client, implementing over <strong>40 Valkey commands</strong>, enhancing functionality and user command options.</li>
+        <li>Contributed to the open source project, <a href="https://github.com/valkey-io/valkey-glide">GLIDE-for-Valkey</a> for AWS, to develop the <strong>Java, Python, Node.js, and Go</strong> client, implementing over <strong>40 Valkey commands</strong>, enhancing functionality and user command options.</li>
         <li>Set up a CI pipeline with <strong>GitHub Actions</strong> to automate Java releases, cutting deployment time <strong>from 12h to 1h</strong>.</li>
         <li>Designed and implemented integration, unit, and transaction tests for Valkey commands, with a focus on designing transaction tests for the Java JSON module commands, covering <strong>22 distinct commands</strong>.</li>
         <li>Initiated and facilitated company-wide networking sessions involving <strong>over 35 employees</strong> to solve company problems and build connections with members from other teams. Increased social engagement by <strong>over 25%</strong>.</li>
