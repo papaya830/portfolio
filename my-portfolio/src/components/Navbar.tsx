@@ -4,7 +4,7 @@ import './Navbar.css';
 
 const Navbar = () => {
   // Define a type for the dropdown options
-  type DropdownType = 'about' | 'projects' | null;
+  type DropdownType = 'projects' | null;
 
   // State to track which dropdown is open (if any)
   const [openDropdown, setOpenDropdown] = useState<DropdownType>(null);
@@ -23,19 +23,6 @@ const Navbar = () => {
   return (
     <nav className="nav-bar">
       <Link to="/" className="nav-link">Home</Link>
-
-      {/* About dropdown */}
-      <div className="dropdown">
-        <div
-          className="nav-link"
-          onClick={() => handleToggle('about')}
-        >
-          About
-        </div>
-        <div className={`dropdown-menu ${openDropdown === 'about' ? 'active' : ''}`}>
-          <Link to="/about/Travel" className="dropdown-item">Travel</Link>
-        </div>
-      </div>
 
       {/* Projects dropdown */}
       <div className="dropdown">

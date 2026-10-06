@@ -1,0 +1,62 @@
+/* Single-project page — builds on Projects.css */
+
+.project-page-back {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #3C2416;
+  opacity: 0.7;
+  text-decoration: none;
+  margin-bottom: 1.25rem;
+}
+
+.project-page-back:hover,
+.project-page-back:focus-visible {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.project-page-meta {
+  justify-content: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.project-page-section {
+  background: white;
+  border: 1.5px solid #ebebeb;
+  border-left: 4px solid #FA9058;
+  border-radius: 12px;
+  padding: 20px 22px;
+  margin-bottom: 16px;
+}
+
+.project-page-heading {
+  font-family: 'Cardo', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #3C2416;
+  margin: 0 0 0.25rem;
+}
+
+.project-page-section p {
+  color: #3C2416;
+  line-height: 1.7;
+  margin: 0.5rem 0 0;
+}
+
+.project-page-section a,
+.project-page-related a {
+  color: #d81b60;
+  text-decoration: none;
+}
+
+.project-page-section a:hover,
+.project-page-related a:hover {
+  text-decoration: underline;
+}
+
+.project-page-related {
+  font-size: 0.9rem;
+  color: #3C2416;
+  margin-top: 1.5rem;
+}

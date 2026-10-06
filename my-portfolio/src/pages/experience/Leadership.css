@@ -1,0 +1,121 @@
+/* Leadership & Volunteering section styles */
+/* Shared styles inherited from WorkExperience.css via Experience.css */
+
+.section-title {
+  color: #3C2416;
+  font-size: 1.75rem;
+  margin-top: 0;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.job-title {
+  color: #3C2416;
+  font-size: 1.35rem;
+  margin-bottom: 0.25rem;
+}
+
+.second-job {
+  margin-top: 2.5rem;
+}
+
+.company {
+  color: #3C2416;
+  font-size: 1.1rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.company a {
+  color: #4f46e5;
+  text-decoration: none;
+}
+
+.company a:hover {
+  text-decoration: underline;
+}
+
+.date {
+  color: #3C2416;
+  font-style: italic;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.experience-list {
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+}
+
+.experience-list li {
+  margin-bottom: 0.75rem;
+  color: #3C2416;
+}
+
+.section-content p {
+  color: #3C2416;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+/* LinkedIn-style grouped positions */
+.position-group {
+  position: relative;
+  margin: 0.5rem 0 1.5rem;
+  padding-left: 22px;
+  border-left: 2px solid #E6B2C8;
+}
+
+.position-item {
+  position: relative;
+  padding-bottom: 1.1rem;
+}
+
+.position-item:last-child {
+  padding-bottom: 0;
+}
+
+.position-dot {
+  position: absolute;
+  left: -27px;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #4B3D3A;
+  border: 2px solid #FFF5EE;
+}
+
+.position-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #3C2416;
+  margin: 0 0 2px;
+}
+
+.position-date {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #3C2416;
+  opacity: 0.75;
+  margin: 0;
+}
+
+.expand-toggle {
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-bottom: 1rem;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #3C2416;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.expand-toggle:hover {
+  opacity: 1;
+  text-decoration: underline;
+}

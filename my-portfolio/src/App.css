@@ -5,77 +5,106 @@
   font-family: 'Cardo', serif;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 28px;
 }
 
-/* Title styling - centered with proper alignment */
-.home-title {
-  font-family: 'Cardo', serif;
-  font-size: 72px;
-  margin: 20px 0;
+/* ── Site header — name + images grouped together ── */
+.site-header {
   display: flex;
   align-items: center;
-  justify-content: center; /* Center the title */
-  text-align: center;
+  justify-content: flex-start;
+  gap: 16px;
+  padding: 24px 0 10px;
+  margin-bottom: 0;
+}
+
+.site-name {
+  font-family: 'Cardo', serif;
+  font-size: 52px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.02em;
+  color: #3C2416;
+}
+
+.header-images {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
 }
 
 .headliner {
-  width: 90px;
-  height: 90px;
-  margin-left: 20px;
+  width: 68px;
+  height: 68px;
   object-fit: cover;
   border-radius: 50%;
 }
 
 .monkey-headliner {
-  width: 77px;
-  height: 118px;
-  margin-left: 20px;
+  width: 48px;
+  height: 72px;
   object-fit: cover;
 }
 
-/* Narrower Navbar styling */
+/* ── Navbar — sliding pink underline ── */
 .navbar {
-  background-color: #ffcdd2; /* Light pink background */
-  padding: 8px 0; /* Reduced vertical padding */
-  margin-bottom: 20px;
-  max-width: 80%; /* Make navbar narrower than full width */
+  display: flex;
+  gap: 28px;
+  padding: 10px 0;
+  margin-bottom: 24px;
+  background: none;
+  border-radius: 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* ── Shared wrapper so header + nav align at the same left edge ── */
+.header-nav-wrapper {
+  max-width: 840px;
   margin-left: auto;
   margin-right: auto;
-  text-align: center; /* Center the navbar */
-  border-radius: 8px; /* Optional: adds rounded corners */
 }
 
-.navbar ul {
-  display: flex;
-  justify-content: center; /* Center the navigation items */
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar li {
-  margin: 0 15px; /* Reduced side margins */
-}
-
-.navbar a {
-  color: #000;
+.nav-link {
+  font-family: 'Cardo', serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #aaa;
   text-decoration: none;
-  font-size: 18px;
-  font-weight: 500;
-  padding: 8px 12px; /* Reduced padding around links */
-  transition: all 0.3s ease;
+  padding: 4px 0;
+  position: relative;
+  transition: color 0.2s ease;
 }
 
-.navbar a:hover {
-  color: #d81b60;
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #ffb3c6;
+  border-radius: 2px;
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover {
+  color: #3C2416;
+}
+
+.nav-link.active {
+  color: #3C2416;
+  font-weight: 700;
+}
+
+.nav-link.active::after,
+.nav-link:hover::after {
+  width: 100%;
 }
 
 /* Content styling - updated to not have the blue box around everything */
 main {
   width: 100%;
-  display: flex;
-  justify-content: center;
+  display: block;
 }
 
 .content-container {
@@ -188,36 +217,27 @@ main {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .home-title {
-    font-size: 48px;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+  .app {
+    padding: 0 18px;
+  }
+
+  .site-name {
+    font-size: 36px;
   }
 
   .headliner {
-    width: 60px;
-    height: 60px;
-    margin-left: 0;
+    width: 52px;
+    height: 52px;
   }
 
   .monkey-headliner {
-    width: 50px;
-    height: 80px;
-    margin-left: 0;
+    width: 38px;
+    height: 56px;
   }
 
   .navbar {
-    max-width: 90%; /* Wider on mobile but still not full width */
-  }
-
-  .navbar ul {
+    gap: 20px;
     flex-wrap: wrap;
-  }
-
-  .navbar li {
-    margin-bottom: 5px;
-    margin-top: 5px;
   }
 
   .content-container {
@@ -228,5 +248,30 @@ main {
   .general-text,
   .self-photo-slideshow {
     max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 0 14px;
+  }
+
+  .site-name {
+    font-size: 28px;
+  }
+
+  .site-header {
+    gap: 10px;
+    padding: 16px 0 8px;
+  }
+
+  .headliner {
+    width: 42px;
+    height: 42px;
+  }
+
+  .monkey-headliner {
+    width: 30px;
+    height: 46px;
   }
 }

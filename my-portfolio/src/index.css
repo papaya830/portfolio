@@ -1,5 +1,9 @@
 /* Reset approach for home page layout */
 
+html {
+  overflow-y: scroll;
+}
+
 .content-container {
   display: flex;
   flex-direction: row;
@@ -17,4 +21,5 @@
   background-color: #F0F8FF;
   border-radius: 30px;
   box-sizing: border-box;
+  color: #3C2416;
 }

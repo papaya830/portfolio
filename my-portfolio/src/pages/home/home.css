@@ -1,0 +1,194 @@
+.home-container {
+  padding: 1.5rem 0 4rem;
+}
+
+.home-inner {
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+/* Header — matches projects/experience */
+.home-header {
+  margin-bottom: 2rem;
+}
+
+.home-title-text {
+  font-family: 'Cardo', serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #3C2416;
+  margin: 0 0 0.3rem;
+  letter-spacing: -0.01em;
+}
+
+.home-subtitle {
+  font-size: 0.95rem;
+  color: #888;
+  margin: 0;
+}
+
+/* Body — text left, slideshow right */
+.home-body {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  margin-bottom: 28px;
+}
+
+.home-text {
+  flex: 1;
+  font-family: 'Cardo', serif;
+  font-size: 18px;
+  color: #3C2416;
+  line-height: 1.75;
+}
+
+.home-text p {
+  margin: 0 0 16px;
+}
+
+.home-text p:last-of-type {
+  margin-bottom: 0;
+}
+
+.home-text a {
+  color: #5b4bcc;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.home-text a:hover {
+  color: #d81b60;
+}
+
+/* Slideshow */
+.slideshow-container {
+  flex: 0 0 38%;
+  position: relative;
+  align-self: flex-start;
+  min-width: 0;
+}
+
+.images {
+  display: none;
+}
+
+.images.active {
+  display: block;
+}
+
+.images img {
+  width: 100%;
+  height: auto;
+  border: 12px solid #FDDDE6;
+  border-radius: 6px;
+  box-sizing: border-box;
+  display: block;
+}
+
+.slide-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  padding: 8px 10px;
+  color: white;
+  font-weight: bold;
+  background-color: rgba(0,0,0,0.28);
+  font-size: 14px;
+  z-index: 2;
+  user-select: none;
+}
+
+.prev-arrow { left: 0; border-radius: 0 3px 3px 0; }
+.next-arrow { right: 0; border-radius: 3px 0 0 3px; }
+.slide-arrow:hover { background-color: rgba(0,0,0,0.55); }
+
+/* Personal link */
+.personal-side-btn {
+  display: inline-block;
+  margin-top: 18px;
+  font-family: 'Cardo', serif;
+  font-size: 15px;
+  font-style: italic;
+  color: #d81b60;
+  text-decoration: none;
+  border-bottom: 1px dashed #d81b60;
+  padding-bottom: 1px;
+  transition: opacity 0.15s ease;
+}
+
+.personal-side-btn:hover { opacity: 0.7; }
+
+/* Instagram blob */
+.instagram-blob {
+  background: #fff0f5;
+  border: 1.5px solid #ffb3c6;
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Cardo', serif;
+  font-size: 13px;
+  color: #3C2416;
+  margin-top: 4px;
+}
+
+.insta-emoji {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.instagram-blob p { margin: 0; line-height: 1.5; }
+
+.instagram-blob a {
+  color: #d81b60;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.instagram-blob a:hover { text-decoration: underline; }
+
+/* Fundraiser blob */
+.fundraiser-blob {
+  background: #fffbe6;
+  border: 1.5px solid #ffd43b;
+  border-radius: 14px;
+  padding: 16px 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Cardo', serif;
+  font-size: 16px;
+  color: #3C2416;
+  margin-bottom: 14px;
+}
+
+.fundraiser-emoji {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.fundraiser-blob p { margin: 0; line-height: 1.6; }
+
+.fundraiser-blob a {
+  color: #c47c00;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.fundraiser-blob a:hover { text-decoration: underline; }
+
+@media (max-width: 640px) {
+  .home-title-text { font-size: 2rem; }
+
+  .home-body {
+    flex-direction: column;
+  }
+
+  .slideshow-container {
+    flex: none;
+    width: 100%;
+  }
+}
