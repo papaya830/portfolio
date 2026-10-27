@@ -9,6 +9,9 @@ import Personal from "./pages/personal/Personal";
 import Software from "./pages/projects/Software";
 import Firmware from "./pages/projects/Firmware";
 import Design from "./pages/projects/Design";
+import FlowRateDevice from "./pages/projects/FlowRateDevice";
+
+import SparkleCursor from './components/SparkleCursor';
 
 import './App.css';
 import headImage from './assets/images/head-new.jpg';
@@ -18,6 +21,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="app">
+        <SparkleCursor />
 
         <div className="header-nav-wrapper">
           {/* Header — name left, images right */}
@@ -44,6 +48,7 @@ function App() {
           <Route path="/projects/software" element={<Software />} />
           <Route path="/projects/firmware" element={<Firmware />} />
           <Route path="/projects/design" element={<Design />} />
+          <Route path="/projects/flow-rate-device" element={<FlowRateDevice />} />
           <Route path="/experience" element={<Experience />} />
           <Route path="/creative" element={<Creative />} />
           <Route path="/personal" element={<Personal />} />

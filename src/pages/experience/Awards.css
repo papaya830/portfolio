@@ -1,0 +1,122 @@
+/* Awards & Scholarships section styles */
+/* Reuses .section-title, .position-dot, .position-title, .position-date from Leadership.css */
+
+/* Highlight cards */
+.award-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin: 1.5rem 0 2.25rem;
+}
+
+.award-highlight-card {
+  background: #FFF5EE;
+  border: 1.5px solid #ebebeb;
+  border-left: 4px solid #E6B2C8;
+  border-radius: 12px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.award-highlight-badge {
+  align-self: flex-start;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #F2C2C2;
+  color: #3C2416;
+}
+
+.award-highlight-name {
+  font-family: 'Cardo', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #3C2416;
+  margin: 0;
+}
+
+.section-content .award-meta {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #3C2416;
+  opacity: 0.75;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.award-sep {
+  margin: 0 6px;
+}
+
+.section-content .award-amount {
+  font-family: 'Cardo', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #d81b60;
+  margin: 2px 0 0;
+  line-height: 1.2;
+}
+
+.section-content .award-note {
+  font-size: 0.92rem;
+  color: #3C2416;
+  line-height: 1.6;
+  margin: 4px 0 0;
+}
+
+.award-link {
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: #3C2416;
+  text-decoration: none;
+  width: fit-content;
+  margin-top: 4px;
+  display: inline-block;
+}
+
+.award-link:hover,
+.award-link:focus-visible {
+  text-decoration: underline;
+}
+
+/* Full list — same vertical rail as the grouped positions */
+.award-list-heading {
+  color: #3C2416;
+  font-size: 1.1rem;
+  margin: 0 0 1rem;
+}
+
+.award-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 22px;
+  border-left: 2px solid #E6B2C8;
+}
+
+.award-item {
+  position: relative;
+  padding-bottom: 1.4rem;
+}
+
+.award-item:last-child {
+  padding-bottom: 0;
+}
+
+.award-item-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.award-amount-tag {
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #FCEABC;
+  color: #3C2416;
+}

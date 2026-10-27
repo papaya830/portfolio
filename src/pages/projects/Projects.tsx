@@ -1,8 +1,9 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '/src/index.css';
 import './Projects.css';
 
-type Category = 'All' | 'Software' | 'Firmware' | 'Design';
+type Category = 'All' | 'Software' | 'Firmware' | 'Design' | 'Robotics';
 
 const GitHubIcon = () => (
   <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true">
@@ -15,13 +16,116 @@ const categoryConfig: Record<string, { label: string; color: string }> = {
   Software: { label: "Software",      color: "cat-software" },
   Firmware: { label: "Firmware / HW", color: "cat-firmware" },
   Design:   { label: "Design / UX",   color: "cat-design" },
+  Robotics: { label: "Robotics",      color: "cat-robotics" },
 };
 
-const projectsData = [
+type Project = {
+  id: number;
+  title: string;
+  // A project can carry more than one tag (e.g. Software + Robotics)
+  types: Exclude<Category, 'All'>[];
+  completionTime: string;
+  competitionLabel?: string;
+  competitionLink?: string;
+  description: string;
+  details?: string;
+  bullets?: string[];
+  link?: string;
+  linkLabel?: string;
+  // Route inside this site, rendered with <Link> instead of an external <a>
+  internalLink?: string;
+};
+
+const projectsData: Project[] = [
+  {
+    id: 10,
+    title: "Humanoid Interaction Retargeting in Simulation",
+    types: ["Software", "Robotics"],
+    completionTime: "Oct 2026 - Present",
+    description: "A modular pipeline that retargets two-person motion capture onto pairs of Unitree humanoids, replays it in MuJoCo, and compares retargeting methods across 104 clips.",
+    details: "I take recorded human-human interactions (handshakes, hugs, dancing) from the InterHuman motion capture dataset and get two humanoid robots to reproduce them. The first stage is kinematic replay: poses are set frame by frame and nothing is physically simulated. I built the pipeline, compared two retargeting methods (GMR and OmniRetarget), and investigated why the robots still pass through each other.",
+    bullets: [
+      "Ran a batch evaluation over 104 clips: OmniRetarget brought mean hand-spacing error down from 15.2 cm (GMR) to 3.31 cm, and kept robots' feet above the floor (+1.27 cm median) versus GMR sinking through it (-7.5 cm median). 574 of 574 batch jobs completed in about 4.7 hours.",
+      "Found and fixed a silent bug: MuJoCo 3.16.0 returns joint types as numpy.int32, so a Python \"in\" check in the retargeting library silently returned False and zeroed out the Jacobian's joint columns — only the pelvis moved, with no error raised. Fixed it with a runtime wrapper, without editing the upstream source; joint ranges went from about 1e-7-1e-4 rad to 0.9-2.6 rad.",
+      "Built a modular rt/ package where retargeters and metrics are plug-ins, so adding a new method takes one file; includes a results cache, a CLI, and acceptance tests.",
+      "Built a Gradio web app for side-by-side video comparison of two retargeting methods, a metrics table, and 1-5 ratings on four questions. Localhost only; smoke-tested 20/20, not yet used in a live session.",
+      "The robots still pass through each other in places, mainly because each person is retargeted independently (the partner is never part of the optimization) and kinematic replay has no contact response. Re-solving with the partner as an obstacle cut penetrating frames on the hug clip from 100% to 75%; adding 8 cm of spacing on the handshake clip removed penetration but made the hands visibly stop meeting.",
+      "Added a PD-physics mode where joints are driven by actuators with gravity and robot-vs-robot contact, so the robots bounce off each other instead of passing through, though the pelvis path is still pinned to the retargeted trajectory, so it's not full physics tracking."
+    ],
+    // TODO: video placeholders — dance clip (headline), hug clip (captioned as a limitation), GMR vs
+    // OmniRetarget comparison, and PD on/off, with caption "Playback only sets poses frame by frame.
+    // There's no physics, so bodies can pass through each other." No media field exists on this card
+    // format yet, so these aren't wired in; let me know how you'd like to add them once you have clips.
+  },
+  {
+    id: 11,
+    title: "Trying NVIDIA GR00T on Simulated Humanoids",
+    types: ["Software", "Robotics"],
+    // TODO: confirm date — not given separately from the Humanoid Interaction Retargeting entry above,
+    // assumed to fall in the same Oct 2026 window since it's described as a companion effort
+    completionTime: "Oct 2026",
+    description: "Running GR00T N1.7 in closed loop on a Franka arm, then testing whether the pretrained humanoid model transfers to a simulated Unitree G1.",
+    details: "GR00T-N1.7-LIBERO controlled a Franka arm through a server/client setup, succeeding on 2 of 2 episodes. I also set up a G1 pick-and-place scene and fed its observations to the pretrained REAL_G1 model open loop. The output followed the state I sent, but the planned motion was nearly static, the hands never closed, and changing the image or instruction barely changed it. My read: the pretrained model doesn't act on my simulated scene, likely because it's out of its training distribution, and a manipulation demo would need fine-tuning. The rotation convention and hand joint order I used were guesses, so this is a probe, not a rigorous negative result.",
+    bullets: [
+      "GR00T-N1.7-LIBERO controlled a Franka arm through a server/client setup: 2 of 2 episodes succeeded.",
+      "Fed a simulated Unitree G1 pick-and-place scene's observations to the pretrained REAL_G1 model open loop: it followed the input state (shifting the input wrist +10 cm shifted the output about +12 cm) but barely moved (at most 2.5 cm over 40 steps), never closed the hands, and barely reacted to a blank image or a different instruction.",
+      "My conclusion: the pretrained model doesn't act on my simulated scene, likely out of its training distribution — a real manipulation demo would need fine-tuning on a larger GPU or a task-specific checkpoint."
+    ],
+  },
+  {
+    id: 9,
+    title: "Robot Sgraffito",
+    types: ["Software", "Robotics"],
+    completionTime: "Ongoing (since May 2026)",
+    description: "Simulation research for robotic sgraffito: a robot scratches through layered material to reveal the colour beneath. I characterized how tools and actions behave, and worked on an artist-facing interface for previewing carves.",
+    internalLink: "/projects/software",
+    linkLabel: "Project page"
+  },
+  {
+    id: 6,
+    title: "ScrollStake",
+    // TODO: confirm category
+    types: ["Software"],
+    completionTime: "Oct 2026",
+    competitionLabel: "StormHacks 2026",
+    description: "An app to help you lock in: money is deducted from your account if you break the lock, enforced with a blockchain smart contract.",
+    // TODO: tech stack, my role, and anything you want in the expanded details
+    link: "https://devpost.com/software/scrollstake",
+    linkLabel: "Devpost"
+  },
+  {
+    id: 7,
+    title: "ShelterSpace",
+    // TODO: confirm category
+    types: ["Software"],
+    completionTime: "Summer 2025–Summer 2026",
+    competitionLabel: "Enactus x Bentley iTwin4Good, 6th place",
+    description: "Started as a real-time bed availability view for homeless shelters, then grew into a full-stack app that lets shelters communicate with each other.",
+    details: "ShelterSpace began at the Enactus x Bentley iTwin4Good challenge in summer 2025, a six-week challenge where we used iTwin technology to show real-time bed availability in homeless shelters and placed 6th. In summer 2026, at the Enactus summer sprint challenge, it was built out into a full-stack application that lets shelters communicate with each other.",
+    bullets: [
+      "Summer 2025: used iTwin technology to show real-time bed availability in homeless shelters; placed 6th at Enactus x Bentley iTwin4Good",
+      "Summer 2026: built out into a full-stack application for shelter-to-shelter communication at the Enactus summer sprint challenge"
+    ],
+    // TODO: tech stack, my role, and links (repo / demo / Devpost)
+  },
+  {
+    id: 8,
+    title: "Flow Rate Detection Device",
+    // TODO: confirm category (Firmware / HW assumed since it's a physical device)
+    types: ["Firmware"],
+    completionTime: "Jan–Nov 2025",
+    description: "A flow rate detection device I took from concept to a near-finished MVP over 250+ hours, through Ocean Wise's Ocean Bridge Ambassador program and an Ocean Action Grant.",
+    details: "Started from January to May 2025 as an early, bare-bones concept for my Ocean Wise Ocean Bridge Ambassador project (120+ hours), then developed from May to November 2025 into a near-finished MVP with funding from an Ocean Action Grant, as part of the Canada Service Corps program (130+ hours).",
+    // TODO: technical details to write up (hardware, sensors, firmware, results)
+    internalLink: "/projects/flow-rate-device",
+    linkLabel: "Project page"
+  },
+  // TODO: World Cup Designathon & Hackathon (Vancouver Made, Jun 2026, fashion track) — add a card once you know what you built; it's in the hackathon timeline for now
+  // TODO: Fall detection device (NW Hacks, Jan 2025) — currently timeline-only; add a short "what I learned" card here if you prefer
   {
     id: 1,
     title: "GLIDE for Valkey",
-    type: "Software",
+    types: ["Software"],
     completionTime: "May–Dec 2024",
     description: "Open source contribution to AWS's Valkey project — implemented commands across four languages and cut CI deploy time.",
     details: "Contributed to an AWS open source project implementing 40+ Valkey commands across Java, Python, Node.js, and Go clients. Set up a CI pipeline that cut deployment time from 12h to 1h.",
@@ -35,7 +139,7 @@ const projectsData = [
   {
     id: 2,
     title: "Emotion Recognition CNN",
-    type: "Software",
+    types: ["Software"],
     completionTime: "Summer 2021",
     description: "A convolutional neural network trained to recognize human emotion from images.",
     details: "Trained a convolutional neural network on the FER2013 dataset to recognize human emotions in images. Improved accuracy from 45% to 50% through model experimentation.",
@@ -49,7 +153,7 @@ const projectsData = [
   {
     id: 3,
     title: "Jellyfish Umbrella",
-    type: "Firmware",
+    types: ["Firmware", "Robotics"],
     completionTime: "Feb–Mar 2026",
     competitionLink: "https://www.sfu.ca/fas/study/student-life/fas-competition.html",
     competitionLabel: "SFU FAS Speak Out Competition, 3rd place out of 15 teams",
@@ -66,7 +170,7 @@ const projectsData = [
   {
     id: 4,
     title: "EasySpeak",
-    type: "Design",
+    types: ["Design"],
     completionTime: "Feb–Mar 2024",
     competitionLink: "https://www.sfu.ca/fas/study/student-life/fas-competition.html",
     competitionLabel: "SFU FAS Speak Out Competition, 3rd place out of 15 teams",
@@ -84,7 +188,7 @@ const projectsData = [
   {
     id: 5,
     title: "FETCH! Automatic Ball Retriever",
-    type: "Firmware",
+    types: ["Firmware"],
     completionTime: "2023",
     description: "A passive ramp and Arduino-controlled system that returns a hockey ball to a solo player.",
     details: "Built for SFU's ENSC 100 to help kids practice ball hockey solo. Passive ramps funnel the ball back after each shot; an Arduino-controlled linear actuator and ultrasonic sensor then lift and release it down a second ramp, sending it back out toward the player.",
@@ -105,7 +209,7 @@ const Projects = () => {
 
   const filtered = activeCategory === 'All'
     ? projectsData
-    : projectsData.filter(p => p.type === activeCategory);
+    : projectsData.filter(p => p.types.includes(activeCategory));
 
   const isPlaceholderCategory = placeholderCategories.includes(activeCategory);
 
@@ -116,6 +220,9 @@ const Projects = () => {
         <div className="projects-header">
           <h1 className="projects-title">projects</h1>
           <p className="projects-subtitle">things i've built across software, hardware, and design</p>
+          <p className="projects-subtitle projects-subtitle-link">
+            looking for hackathon wins? see <Link to="/experience?tab=hackathons">hackathons & competitions →</Link>
+          </p>
         </div>
 
         <div className="category-filters">
@@ -142,35 +249,40 @@ const Projects = () => {
             </p>
             <div className="projects-grid">
               {filtered.map(project => {
-                const cfg = categoryConfig[project.type];
                 const isExpanded = expandedId === project.id;
                 return (
                   <div
                     key={project.id}
-                    className={`project-card card-${project.type.toLowerCase()} ${isExpanded ? 'expanded' : ''}`}
+                    className={`project-card card-${project.types[0].toLowerCase()} ${isExpanded ? 'expanded' : ''}`}
                     onClick={() => setExpandedId(isExpanded ? null : project.id)}
                   >
                     <div className="card-top">
-                      <span className={`card-type-badge ${cfg.color}`}>{cfg.label}</span>
+                      <div className="card-type-badges">
+                        {project.types.map(t => (
+                          <span key={t} className={`card-type-badge ${categoryConfig[t].color}`}>{categoryConfig[t].label}</span>
+                        ))}
+                      </div>
                       <span className="card-time">{project.completionTime}</span>
                     </div>
                     <h3 className="card-title">{project.title}</h3>
-                    {'competitionLink' in project && project.competitionLink && (
+                    {project.competitionLabel && (project.competitionLink ? (
                       <a
-                        href={project.competitionLink as string}
+                        href={project.competitionLink}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="card-competition-link"
                         onClick={(e) => e.stopPropagation()}
                       >
-                        {(project as any).competitionLabel}
+                        {project.competitionLabel}
                       </a>
-                    )}
+                    ) : (
+                      <span className="card-competition-link">{project.competitionLabel}</span>
+                    ))}
                     <p className="card-desc">{project.description}</p>
-                    {isExpanded && 'details' in project && project.details && (
+                    {isExpanded && project.details && (
                       <p className="card-details">{project.details}</p>
                     )}
-                    {isExpanded && 'bullets' in project && project.bullets && project.bullets.length > 0 && (
+                    {isExpanded && project.bullets && project.bullets.length > 0 && (
                       <ul className="card-bullets">
                         {project.bullets.map((bullet, i) => (
                           <li key={i}>{bullet}</li>
@@ -178,19 +290,41 @@ const Projects = () => {
                       </ul>
                     )}
                     <div className="card-bottom">
-                      {'link' in project && project.link && (
+                      {project.internalLink && (
+                        <Link
+                          to={project.internalLink}
+                          className="card-link"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          {project.linkLabel} →
+                        </Link>
+                      )}
+                      {project.link && (
                         <a
-                          href={project.link as string}
+                          href={project.link}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="card-link"
                           onClick={(e) => e.stopPropagation()}
                         >
                           {project.linkLabel === "GitHub" && <GitHubIcon />}
-                          {(project as any).linkLabel} →
+                          {project.linkLabel} →
                         </a>
                       )}
-                      <span className="card-expand-toggle">{isExpanded ? "show less ↑" : "read more ↓"}</span>
+                      {(project.details || (project.bullets && project.bullets.length > 0)) && (
+                        <button
+                          type="button"
+                          className="card-expand-toggle"
+                          aria-expanded={isExpanded}
+                          aria-label={`${isExpanded ? 'Show less' : 'Read more'} about ${project.title}`}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setExpandedId(isExpanded ? null : project.id);
+                          }}
+                        >
+                          {isExpanded ? "show less ↑" : "read more ↓"}
+                        </button>
+                      )}
                     </div>
                   </div>
                 );

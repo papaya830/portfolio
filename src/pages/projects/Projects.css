@@ -58,6 +58,7 @@
 .filter-pill.cat-software.active { background: #FCEABC; color: #3C2416; border-color: #FECC64; }
 .filter-pill.cat-firmware.active { background: #FA9058; color: #3C2416; border-color: #C87346; }
 .filter-pill.cat-design.active   { background: #B5D8FF; color: #3C2416; border-color: #95CAFC; }
+.filter-pill.cat-robotics.active { background: #E0D4FD; color: #3C2416; border-color: #C9AFFA; }
 
 /* Count */
 .results-count {
@@ -99,12 +100,19 @@
 .card-software { border-left: 4px solid #FECC64; }
 .card-firmware { border-left: 4px solid #FA9058; }
 .card-design   { border-left: 4px solid #B5D8FF; }
+.card-robotics { border-left: 4px solid #C9AFFA; }
 
 .card-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
+}
+
+.card-type-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
 .card-type-badge {
@@ -117,6 +125,7 @@
 .card-type-badge.cat-software { background: #FCEABC; color: #3C2416; }
 .card-type-badge.cat-firmware { background: #FA9058; color: #3C2416; }
 .card-type-badge.cat-design   { background: #B5D8FF; color: #3C2416; }
+.card-type-badge.cat-robotics { background: #E0D4FD; color: #3C2416; }
 
 .card-time {
   font-size: 0.75rem;
@@ -198,6 +207,45 @@
   color: #aaa;
   font-style: italic;
   white-space: nowrap;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: auto;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.card-expand-toggle:hover {
+  color: #3C2416;
+}
+
+.card-expand-toggle:focus-visible,
+.card-link:focus-visible,
+.card-competition-link:focus-visible,
+.filter-pill:focus-visible {
+  outline: 2px solid #d81b60;
+  outline-offset: 2px;
+}
+
+span.card-competition-link {
+  cursor: default;
+}
+
+span.card-competition-link:hover {
+  text-decoration: none;
+}
+
+.projects-subtitle-link {
+  margin-top: 0.35rem;
+}
+
+.projects-subtitle-link a {
+  color: #d81b60;
+  text-decoration: none;
+}
+
+.projects-subtitle-link a:hover {
+  text-decoration: underline;
 }
 
 .card-link {

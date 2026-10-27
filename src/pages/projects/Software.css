@@ -1,0 +1,98 @@
+/* Robot Sgraffito project page — builds on Projects.css and FlowRateDevice.css */
+
+.project-table-wrap {
+  overflow-x: auto;
+  margin: 0.75rem 0 0;
+}
+
+.project-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.87rem;
+  color: #3C2416;
+}
+
+.project-table th,
+.project-table td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: top;
+}
+
+.project-table th {
+  font-weight: 700;
+  color: #3C2416;
+  border-bottom: 2px solid #ebebeb;
+}
+
+.project-note {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #888;
+  margin-top: 0.6rem;
+}
+
+.project-subheading {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #3C2416;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.project-subheading:first-of-type {
+  margin-top: 0.75rem;
+}
+
+.project-video {
+  width: 100%;
+  border-radius: 8px;
+  border: 1.5px solid #ebebeb;
+  display: block;
+  background: #000;
+}
+
+.project-poster-image {
+  width: 100%;
+  border-radius: 8px;
+  border: 1.5px solid #ebebeb;
+  display: block;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.project-report-pages {
+  max-height: 720px;
+  overflow-y: auto;
+  border: 1.5px solid #ebebeb;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.project-report-page {
+  width: 100%;
+  display: block;
+}
+
+.project-report-page + .project-report-page {
+  border-top: 1px solid #ebebeb;
+}
+
+.project-pdf-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: #3C2416;
+  text-decoration: none;
+}
+
+.project-pdf-link:hover {
+  text-decoration: underline;
+}
+
+.project-tech-line {
+  font-size: 0.9rem;
+  color: #3C2416;
+  line-height: 1.7;
+  margin: 0.5rem 0 0;
+}

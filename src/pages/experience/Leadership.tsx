@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Leadership.css';
 
 const Leadership = () => {
@@ -14,8 +15,17 @@ const Leadership = () => {
         <a href="https://treehouse.place/">Treehouse</a> — <a href="https://socratica.info/">SFU Socratica Node</a>
       </p>
       <p className="date">May 2025 - Present</p>
+      <ul className="experience-list">
+        <li>Co-founded a weekly peer co-working space at <strong>SFU Surrey</strong>, growing it to <strong>60+ members across four terms</strong> and <strong>240+ hours</strong> of co-working sessions.</li>
+        <li>Organized the first <strong>Treehouse Showcase</strong>, bringing together <strong>100+ attendees</strong> to share projects, performances, and works in progress.</li>
+        <li>Run operations end to end: room bookings, budget, session planning, member lead coordination, and the Discord and Luma community.</li>
+      </ul>
 
-      <button className="expand-toggle" onClick={() => setTreehouseExpanded(!treehouseExpanded)}>
+      <button
+        className="expand-toggle"
+        aria-expanded={treehouseExpanded}
+        onClick={() => setTreehouseExpanded(!treehouseExpanded)}
+      >
         {treehouseExpanded ? 'show less ↑' : 'read the full story ↓'}
       </button>
 
@@ -62,6 +72,74 @@ const Leadership = () => {
         </>
       )}
 
+      <h3 className="job-title second-job">Women in Computing Science (WiCS)</h3>
+      {/* TODO: WiCS homepage link, if you want the org name linked */}
+      <p className="company">SFU</p>
+      {/* TODO: confirm overall WiCS start date (earliest role listed is 2024) */}
+      <p className="date">2024 - Present</p>
+
+      <div className="position-group">
+        <div className="position-item">
+          <div className="position-dot"></div>
+          <div className="position-content">
+            <h4 className="position-title">Mentor, Mentorship Program</h4>
+            <p className="position-date">2024 - Present</p>
+          </div>
+        </div>
+        <div className="position-item">
+          <div className="position-dot"></div>
+          <div className="position-content">
+            <h4 className="position-title">Try/Catch Committee Member</h4>
+            <p className="position-date">June 2024 - October 2024</p>
+          </div>
+        </div>
+        <div className="position-item">
+          <div className="position-dot"></div>
+          <div className="position-content">
+            <h4 className="position-title">Workshop Facilitator & Panelist</h4>
+            {/* TODO: dates for workshops / panels */}
+          </div>
+        </div>
+        <div className="position-item">
+          <div className="position-dot"></div>
+          <div className="position-content">
+            <h4 className="position-title">General Volunteer</h4>
+            {/* TODO: general volunteer dates */}
+          </div>
+        </div>
+      </div>
+
+      <ul className="experience-list">
+        <li>Helped raise <strong>$10K in sponsorships</strong> for <a href="https://www.sfu.ca/wics/events/try-catch.html" target="_blank" rel="noopener noreferrer">Try/Catch</a>, and organized food and logistics for the day of the event.</li>
+        {/* TODO: workshop topics and panel topics/dates */}
+        <li>Ran workshops and spoke as a panelist at WiCS events.</li>
+        {/* TODO: mentorship outcome (e.g. number of mentees), if you want one here */}
+        <li>Mentor students through the WiCS Mentorship Program and volunteer at WiCS events.</li>
+      </ul>
+
+      <h3 className="job-title second-job">Ocean Action Grant Project</h3>
+      <p className="company">
+        {/* TODO: Canada Service Corps program link — wrap the name below in an <a> once you have it */}
+        Canada Service Corps
+      </p>
+      <p className="date">May 2025 - November 2025</p>
+      <ul className="experience-list">
+        <li>Took my <Link to="/projects/flow-rate-device">flow rate detection device</Link> from an early concept to a <strong>near-finished MVP</strong> over <strong>130+ hours</strong>, with funding from an <strong>Ocean Action Grant</strong>.</li>
+        <li>Hosted an <strong>Ocean Jeopardy</strong> event for <strong>30+ attendees</strong> to educate people about the ocean and water.</li>
+        <li>Completed as part of the <strong>Canada Service Corps</strong> program.</li>
+      </ul>
+
+      <h3 className="job-title second-job">Ocean Bridge Ambassador</h3>
+      <p className="company">
+        <a href="https://ocean.org/action/become-an-ocean-bridge-ambassador/" target="_blank" rel="noopener noreferrer">Ocean Wise</a>
+      </p>
+      <p className="date">January 2025 - May 2025</p>
+      <ul className="experience-list">
+        <li>Part of Ocean Wise's <strong>national youth program</strong> (ages 19–30), where ambassadors form a team for <strong>five months</strong> to co-create and deliver ocean and waterway service projects in their home communities.</li>
+        <li>For my project, designed and built an early concept of a <Link to="/projects/flow-rate-device">flow rate detection device</Link> over <strong>120+ hours</strong>.</li>
+        <li>Took part in the program's <strong>Learning Journeys</strong>, educational workshops on sustainability practices in Squamish culture and on sustainability more broadly.</li>
+      </ul>
+
       <h3 className="job-title second-job">Software Systems Student Society</h3>
       <p className="date">September 2022 - Present</p>
 
@@ -96,7 +174,18 @@ const Leadership = () => {
         </div>
       </div>
 
-      <button className="expand-toggle" onClick={() => setExpanded(!expanded)}>
+      <ul className="experience-list">
+        <li>Hosted around <strong>25 events</strong> as Director of Activities, collaborating with the Mechatronics Systems Engineering and Sustainable Engineering student societies.</li>
+        <li>Started the first <strong>Pancake Breakfast</strong> for the Surrey Faculty of Applied Sciences and the first social event for the women of the FAS at the Surrey campus.</li>
+        <li>Led monthly Events Committee meetings and open forums so non-executive members could plan their own events with executive support.</li>
+        <li>Worked on logistics for the 2023 RootHacks SystemsHack and found sponsors for the 2025 DreamsHack SystemsHack.</li>
+      </ul>
+
+      <button
+        className="expand-toggle"
+        aria-expanded={expanded}
+        onClick={() => setExpanded(!expanded)}
+      >
         {expanded ? 'show less ↑' : 'read the full story ↓'}
       </button>
 
@@ -150,6 +239,15 @@ const Leadership = () => {
           </ul>
         </>
       )}
+
+      <h3 className="job-title second-job">SFU Computing Science Community</h3>
+      <p className="company">GDSC & CSSS</p>
+      {/* TODO: dates for the GDSC workshop and CSSS firmware work (no date line shown until then) */}
+      <ul className="experience-list">
+        <li>Helped run a resume review workshop for the <strong>Google Developer Student Club (GDSC)</strong>.</li>
+        {/* TODO: which CSSS firmware projects, and what you contributed */}
+        <li>Contributed to firmware projects for the <strong>Computing Science Student Society (CSSS)</strong>.</li>
+      </ul>
     </div>
   </div>
   );

@@ -7,19 +7,26 @@
 }
 
 .info-tabs-container {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin-bottom: 2rem;
 }
 
 .info-tab {
   background-color: #f5f7fb;
+  border: none;
   border-radius: 8px;
   padding: 1.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  flex: 1;
+  font-family: inherit;
+  text-align: left;
+}
+
+.info-tab:focus-visible {
+  outline: 2px solid #d81b60;
+  outline-offset: 2px;
 }
 
 .info-tab:hover {
@@ -56,7 +63,7 @@
 
 @media (max-width: 768px) {
   .info-tabs-container {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
   .content-display {
     padding: 1.5rem;
