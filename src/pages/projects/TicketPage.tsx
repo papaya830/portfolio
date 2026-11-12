@@ -22,12 +22,14 @@ const TicketPage = () => {
   const prev = project.tickets[index - 1];
   const next = project.tickets[index + 1];
 
-  const sections: [string, string | undefined][] = [
+  // A ticket only shows the sections it has content for
+  const sections = ([
+    ['What I did', ticket.whatIDid],
     ['Symptom', ticket.symptom],
     ['Cause', ticket.cause],
     ['Fix', ticket.fix],
     ['How I tracked it down', ticket.howFound],
-  ];
+  ] as [string, string | undefined][]).filter(([, text]) => text);
 
   return (
     <main className="pj-page">
@@ -63,15 +65,12 @@ const TicketPage = () => {
             </div>
           )}
 
-          {sections.map(([heading, text]) => {
-            if (!text && !import.meta.env.DEV) return null;
-            return (
-              <section key={heading} className="tk-section">
-                <h2>{heading}</h2>
-                {text ? <p>{text}</p> : <p className="tk-todo">[to fill in]</p>}
-              </section>
-            );
-          })}
+          {sections.map(([heading, text]) => (
+            <section key={heading} className="tk-section">
+              <h2>{heading}</h2>
+              <p>{text}</p>
+            </section>
+          ))}
 
           <div className="tk-nav">
             {prev ? <Link to={`/projects/${project.slug}/${prev.slug}`}>← {prev.id} {prev.title}</Link> : <span />}

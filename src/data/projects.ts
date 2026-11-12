@@ -12,6 +12,8 @@ export type Ticket = {
   status: TicketStatus;
   outcome: string;
   summary?: string;
+  /** Short paragraph built from the original project text */
+  whatIDid?: string;
   before?: Stat;
   after?: Stat;
   symptom?: string;
@@ -133,16 +135,8 @@ export const projects: Project[] = [
         title: 'Batch evaluation: GMR vs OmniRetarget',
         status: 'Done',
         outcome: 'OmniRetarget cut mean hand-spacing error from 15.2 to 3.31 cm over 104 clips.',
-        summary:
-          'Ran both retargeting methods over every clip and compared hand spacing and floor contact. 574 of 574 batch jobs completed in about 4.7 hours.',
-        before: { value: '15.2 cm', label: 'GMR mean hand-spacing error' },
-        after: { value: '3.31 cm', label: 'OmniRetarget mean hand-spacing error' },
-        symptom: 'GMR left the two robots\' hands far apart on interactions like handshakes, and sank feet through the floor (−7.5 cm median).',
-        cause: 'GMR retargets each person independently with no notion of keeping the interaction contacts.',
-        fix: 'Switched the pipeline to OmniRetarget, which keeps feet above the floor (+1.27 cm median) and brings hands together.',
-        howFound: 'A batch job over all 104 clips with automatic metrics for hand spacing and foot height.',
-        tools: 'Python, MuJoCo, GMR, OmniRetarget',
-        skills: 'Evaluation design, batch tooling',
+        whatIDid:
+          "Ran a batch evaluation over 104 clips comparing GMR and OmniRetarget. OmniRetarget brought mean hand-spacing error down from 15.2 cm (GMR) to 3.31 cm, and kept robots' feet above the floor (+1.27 cm median) versus GMR sinking through it (-7.5 cm median). 574 of 574 batch jobs completed in about 4.7 hours.",
       },
       {
         id: 'HIR-2',
@@ -167,36 +161,26 @@ export const projects: Project[] = [
         title: 'Plug-in retargeting pipeline',
         status: 'Done',
         outcome: 'Adding a new retargeting method takes one file.',
-        summary: 'A modular rt/ package where retargeters and metrics are plug-ins.',
-        fix: 'Built a results cache, a CLI, and acceptance tests around a small plug-in interface.',
-        tools: 'Python',
-        skills: 'Software architecture, testing',
+        whatIDid:
+          'Built a modular rt/ package where retargeters and metrics are plug-ins, so adding a new method takes one file; includes a results cache, a CLI, and acceptance tests.',
       },
       {
         id: 'HIR-4',
         slug: 'comparison-app',
         title: 'Side-by-side comparison app',
         status: 'Built',
-        outcome: 'A Gradio app to compare two methods with video, metrics and ratings.',
-        summary:
-          'Side-by-side video, a metrics table, and 1–5 ratings on four questions. Localhost only; smoke-tested 20/20, not yet used in a live session.',
-        tools: 'Python, Gradio',
-        skills: 'UI, evaluation tooling',
+        outcome: 'A Gradio web app for comparing two retargeting methods side by side.',
+        whatIDid:
+          'Built a Gradio web app for side-by-side video comparison of two retargeting methods, a metrics table, and 1-5 ratings on four questions. Localhost only; smoke-tested 20/20, not yet used in a live session.',
       },
       {
         id: 'HIR-5',
         slug: 'partner-aware-retargeting',
         title: 'Partner-aware retargeting',
         status: 'In progress',
-        outcome: 'Hug penetration cut from 100% to 75% of frames so far.',
-        before: { value: '100%', label: 'hug frames penetrating' },
-        after: { value: '75%', label: 'hug frames penetrating' },
-        symptom: 'The robots pass through each other in places.',
-        cause:
-          'Each person is retargeted independently, so the partner is never part of the optimization, and kinematic replay has no contact response.',
-        fix: 'Re-solving with the partner as an obstacle. Adding 8 cm of spacing on the handshake clip removed penetration but the hands visibly stopped meeting.',
-        tools: 'Python, MuJoCo',
-        skills: 'Optimization, collision handling',
+        outcome: 'Penetrating frames on the hug clip cut from 100% to 75% so far.',
+        whatIDid:
+          'The robots still pass through each other in places, mainly because each person is retargeted independently (the partner is never part of the optimization) and kinematic replay has no contact response. Re-solving with the partner as an obstacle cut penetrating frames on the hug clip from 100% to 75%; adding 8 cm of spacing on the handshake clip removed penetration but made the hands visibly stop meeting.',
       },
       {
         id: 'HIR-6',
@@ -204,10 +188,8 @@ export const projects: Project[] = [
         title: 'PD physics mode',
         status: 'Partial',
         outcome: 'Robots bounce off each other instead of passing through.',
-        summary:
-          'Joints are driven by actuators with gravity and robot-vs-robot contact. The pelvis path is still pinned to the retargeted trajectory, so it is not full physics tracking.',
-        tools: 'MuJoCo',
-        skills: 'Simulation, control',
+        whatIDid:
+          "Added a PD-physics mode where joints are driven by actuators with gravity and robot-vs-robot contact, so the robots bounce off each other instead of passing through, though the pelvis path is still pinned to the retargeted trajectory, so it's not full physics tracking.",
       },
     ],
   },
