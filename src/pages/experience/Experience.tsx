@@ -9,37 +9,13 @@ import Robotics from './Robotics';
 
 type TabType = 'work' | 'robotics' | 'leadership' | 'awards' | 'hackathons' | 'education';
 
-const tabs: { id: TabType; title: string; desc: string }[] = [
-  {
-    id: 'work',
-    title: 'Work Experience',
-    desc: "Part-time roles and co-op positions in tech and other fun stuff.",
-  },
-  {
-    id: 'robotics',
-    title: 'Robotics Research Experience',
-    desc: "Research and development work on robotic systems, from simulation to the artist-facing tools around them.",
-  },
-  {
-    id: 'leadership',
-    title: 'Leadership & Volunteering',
-    desc: "Club leadership experience and volunteer activities.",
-  },
-  {
-    id: 'awards',
-    title: 'Awards & Scholarships',
-    desc: "Scholarships, grants, and awards, newest first.",
-  },
-  {
-    id: 'hackathons',
-    title: 'Hackathons & Competitions',
-    desc: "Wins, plus every event I've hacked, organized, mentored, or judged.",
-  },
-  {
-    id: 'education',
-    title: 'Educational Programs',
-    desc: "Specialized learning opportunities and bootcamps.",
-  },
+const tabs: { id: TabType; title: string }[] = [
+  { id: 'work', title: 'Work' },
+  { id: 'robotics', title: 'Research' },
+  { id: 'leadership', title: 'Leadership' },
+  { id: 'awards', title: 'Awards' },
+  { id: 'hackathons', title: 'Hackathons' },
+  { id: 'education', title: 'Education' },
 ];
 
 const isTab = (value: string | null): value is TabType =>
@@ -56,6 +32,9 @@ const Experience = () => {
   return (
     <main className="experience-page">
 
+      <h1 className="exp-title">Experience</h1>
+      <p className="exp-subtitle">One line each. Click a role for what I actually did.</p>
+
       <div className="info-tabs-container" role="tablist" aria-label="Experience sections">
         {tabs.map(tab => (
           <button
@@ -68,14 +47,13 @@ const Experience = () => {
             className={`info-tab ${activeTab === tab.id ? 'active' : ''}`}
             onClick={() => selectTab(tab.id)}
           >
-            <h3>{tab.title}</h3>
-            <p>{tab.desc}</p>
+            {tab.title}
           </button>
         ))}
       </div>
 
       <div
-        className="content-display"
+        className={activeTab === 'work' ? '' : 'content-display'}
         id="experience-panel"
         role="tabpanel"
         aria-labelledby={`tab-${activeTab}`}
