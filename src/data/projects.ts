@@ -1,6 +1,6 @@
 import carvePreview from '../assets/images/projects/sgraffito-carve-preview.png';
 
-export type Category = 'Robotics' | 'Software' | 'Firmware' | 'Design';
+export type Category = 'Robotics' | 'ML' | 'Software' | 'Firmware' | 'Design';
 export type TicketStatus = 'Done' | 'Fixed' | 'Built' | 'In progress' | 'Partial';
 
 export type Stat = { value: string; label: string };
@@ -213,6 +213,27 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: 'tactilegen',
+    title: 'TactileGen: Tactile Charts for Blind and Low-Vision Students',
+    categories: ['ML', 'Software'],
+    when: 'Oct – Nov 2026',
+    status: 'done',
+    tier: 'recent',
+    summary:
+      'Turns chart images into tactile braille graphics for blind and low-vision students, replacing a manual process.',
+    highlight: '96.6% of PlotQA charts read to within 1%',
+    placeholderLabel: '[TactileGen output]',
+    links: [{ label: 'GitHub', href: 'https://github.com/karyao/TactileGen', external: true }],
+    details:
+      "Co-founded an open-source tool (RBC Let's Solve It program) that converts chart images into tactile braille graphics, replacing a 20–30 minute manual process; reads 96.6% of PlotQA test charts to within 1% of true values. Python, YOLOv8, OCR.",
+    bullets: [
+      "Co-founded an open-source tool (RBC Let's Solve It program) that converts chart images into tactile braille graphics, replacing a 20–30 minute manual process; reads 96.6% of PlotQA test charts to within 1% of true values.",
+      'Built the reconstruction step that joins YOLO object-detection output with OCR text into structured chart data, including axis calibration, bar heights, category labels and legend-based series.',
+      'Fixed a chart-title error in the OCR pipeline, raising title accuracy from 49.0% to 98.9% on 11,242 test images.',
+      'Diagnosed why the detector missed short bars and built a pixel-based fallback that recovers them; doubling image resolution raised bar recall only from 93.8% to 94.2%, so it was solved in post-processing.',
+    ],
+  },
+  {
     slug: 'scrollstake',
     title: 'ScrollStake',
     categories: ['Software'],
@@ -247,6 +268,25 @@ export const projects: Project[] = [
     bullets: [
       'Summer 2025: used iTwin technology to show real-time bed availability in homeless shelters; placed 6th at Enactus x Bentley iTwin4Good',
       'Summer 2026: built out into a full-stack application for shelter-to-shelter communication at the Enactus summer sprint challenge',
+    ],
+  },
+  {
+    slug: 'resting-hr-predictor',
+    title: 'Resting Heart Rate Predictor',
+    categories: ['ML', 'Software'],
+    when: 'May – Aug 2026',
+    status: 'done',
+    tier: 'recent',
+    summary:
+      'Predicts resting heart rate from nine months of wearable data using rolling-average features and Ridge regression.',
+    highlight: 'Error cut 29% over baseline (MAE 1.90 vs 2.67 bpm)',
+    placeholderLabel: '[Prediction plot]',
+    links: [{ label: 'GitHub', href: 'https://github.com/papaya830/resting-hr-predictor', external: true }],
+    details:
+      'Python, pandas, scikit-learn. Built a data pipeline integrating four data sources into a daily dataset and modeled 9 months of wearable data with Ridge regression to predict resting heart rate.',
+    bullets: [
+      'Built a Python/pandas data pipeline integrating four data sources into a daily dataset, engineering 7-day and 30-day rolling-average features to separate short-term efforts from long-term fitness (sustained conditioning gains).',
+      'Modeled 9 months of wearable data with Ridge regression to predict resting heart rate, cutting prediction error 29% over baseline (MAE 1.90 vs 2.67 bpm), using temporal cross-validation to prevent time-series leakage.',
     ],
   },
   {
@@ -351,7 +391,7 @@ export const projects: Project[] = [
   {
     slug: 'emotion-recognition-cnn',
     title: 'Emotion Recognition CNN',
-    categories: ['Software'],
+    categories: ['ML', 'Software'],
     when: 'Summer 2021',
     year: '2021',
     status: 'done',
@@ -376,6 +416,7 @@ export const projects: Project[] = [
 
 export const categoryLabels: Record<Category, string> = {
   Robotics: 'Robotics',
+  ML: 'Machine Learning',
   Software: 'Software',
   Firmware: 'Firmware / HW',
   Design: 'Design',

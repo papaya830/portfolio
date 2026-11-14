@@ -4,7 +4,11 @@
 .pj-title { font-size: 48px; line-height: 1.1; margin: 0 0 8px; }
 .pj-subtitle { color: var(--muted); margin: 0 0 24px; }
 
-.pj-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+.pj-toolbar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; margin-bottom: 32px; }
+.pj-filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.pj-view { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: #fff; }
+.pj-view button { height: 44px; padding: 0 18px; border: 0; background: none; font: 500 15px 'Inter', sans-serif; color: var(--body); cursor: pointer; }
+.pj-view button.active { background: var(--ink); color: var(--bg); }
 .pj-pill {
   height: 44px;
   padding: 0 20px;
@@ -139,4 +143,15 @@ a.pj-card:hover { color: var(--body); border-color: #E7B9C8; }
 @media (max-width: 640px) {
   .pj-title, .pd-title { font-size: 36px; }
   .tk-title { font-size: 32px; }
+}
+
+/* List view */
+.pj-list { display: flex; flex-direction: column; gap: 16px; }
+.pj-list .pj-card { flex-direction: row; align-items: stretch; }
+.pj-list .pj-card-media { width: 260px; flex: 0 0 260px; height: auto; aspect-ratio: auto; min-height: 140px; }
+.pj-list .pj-card-body { padding: 16px 20px; }
+.pj-list .pj-highlight { align-self: flex-start; margin-top: 4px; }
+@media (max-width: 640px) {
+  .pj-list .pj-card { flex-direction: column; }
+  .pj-list .pj-card-media { width: 100%; flex: none; aspect-ratio: 16 / 9; }
 }

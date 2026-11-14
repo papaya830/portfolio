@@ -58,5 +58,14 @@ Text I wrote myself rather than copying from your existing content or your instr
 | Placeholder | Generic project page media fallback | "[Headline media]" | None. It is unused for Humanoid, which shows the "[Dance clip still]" label. |
 | Experience | Tab "Research" | Label for the old "Robotics Research Experience" tab | You asked for "Research" |
 | Experience | Role company "Improving" | Dropped "(formerly BitQuill Technologies)" | You gave "Improving". The old note is gone from the Work tab. |
+| Projects | TactileGen summary | "Turns chart images into tactile braille graphics for blind and low-vision students, replacing a manual process." | First resume bullet |
+| Projects | TactileGen highlight | "96.6% of PlotQA charts read to within 1%" | First resume bullet |
+| Projects | TactileGen details | Shortened version of the first bullet, plus the tech line | Resume text |
+| Projects | Resting HR summary | "Predicts resting heart rate from nine months of wearable data using rolling-average features and Ridge regression." | Resume bullets |
+| Projects | Resting HR highlight | "Error cut 29% over baseline (MAE 1.90 vs 2.67 bpm)" | Second resume bullet |
+| Projects | Resting HR details | Shortened version of the bullets, plus the tech line | Resume text |
+| Placeholder | TactileGen / Resting HR | "[TactileGen output]", "[Prediction plot]" | None |
+| Projects | "Machine Learning" pill and tags | New category; also applied to Emotion Recognition CNN | None. Tagging the CNN project is my call. |
+| Education | Let's SOLVE it entry | "Selected as one of six teams for the Fall 2026 cohort… an 8-week program where students build an AI project"; "Co-founded TactileGen, an open-source tool that converts chart images into tactile braille graphics for blind and low-vision students"; "(RBC Borealis)" | Your message (wording of "selected as one of six teams" was "or smth"); resume TactileGen bullet; the rbcborealis.com URL |
 
 Roles and their wording on the Experience Work tab follow your list, with these exceptions: the Kardium "$25K–$40K/year" employee-time estimate and the Improving "25% social engagement" figure from the old page are no longer shown, because they were not in your list.

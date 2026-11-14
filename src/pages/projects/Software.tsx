@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, type ReactNode } from 'react';
 import { showSlides, plusSlides } from '../../utils/slideshow';
 import './Projects.css';
 import './FlowRateDevice.css';
@@ -83,7 +83,79 @@ const posterResults = [
   { design: 'Sun', cut: '80.5%', overCut: '0', missed: '160.2' },
 ];
 
+const sections = [
+  { id: "overview", title: "Overview" },
+  { id: "context-role", title: "Context and my role" },
+  { id: "framework", title: "The framework I worked in" },
+  { id: "experiments", title: "What I found (experiments)" },
+  { id: "poster-results", title: "Poster results (simulated)" },
+  { id: "interface", title: "The artist-facing interface" },
+  { id: "changed", title: "How the project changed" },
+  { id: "next-steps", title: "Next steps" },
+  { id: "tech", title: "Tech" },
+  { id: "research-day", title: "Research day" },
+  { id: "visuals", title: "Visuals" },
+];
+
+type SectionProps = {
+  id: string;
+  title: string;
+  isOpen: boolean;
+  onToggle: () => void;
+  children: ReactNode;
+};
+
+// Collapsible section. Content stays mounted (just hidden) so the slideshow keeps working.
+const Section = ({ id, title, isOpen, onToggle, children }: SectionProps) => (
+  <section id={id} className="project-page-section sg-section" aria-labelledby={`${id}-heading`}>
+    <h2 id={`${id}-heading`} className="project-page-heading sg-heading">
+      <button type="button" aria-expanded={isOpen} aria-controls={`${id}-body`} onClick={onToggle}>
+        <span>{title}</span>
+        <span className="sg-indicator" aria-hidden="true">{isOpen ? '−' : '+'}</span>
+      </button>
+    </h2>
+    <div id={`${id}-body`} className="sg-body" hidden={!isOpen}>
+      {children}
+    </div>
+  </section>
+);
+
 const Software = () => {
+  const [openMap, setOpenMap] = useState<Record<string, boolean>>(
+    () => Object.fromEntries(sections.map(sec => [sec.id, true])),
+  );
+  const [activeId, setActiveId] = useState(sections[0].id);
+
+  const isOpen = (id: string) => openMap[id];
+  const toggle = (id: string) => setOpenMap(m => ({ ...m, [id]: !m[id] }));
+  const allOpen = sections.every(sec => openMap[sec.id]);
+  const setAll = (value: boolean) =>
+    setOpenMap(Object.fromEntries(sections.map(sec => [sec.id, value])));
+
+  const goTo = (id: string) => {
+    setOpenMap(m => ({ ...m, [id]: true }));
+    setActiveId(id);
+    requestAnimationFrame(() =>
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' }),
+    );
+  };
+
+  // Highlight the legend entry for the section nearest the top of the viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        const visible = entries.filter(e => e.isIntersecting);
+        if (visible.length) setActiveId(visible[0].target.id);
+      },
+      { rootMargin: '0px 0px -70% 0px' },
+    );
+    sections.forEach(sec => {
+      const el = document.getElementById(sec.id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const slideshowInitialized = useRef(false);
 
@@ -126,7 +198,7 @@ const Software = () => {
   }, []);
 
   return (
-    <main className="projects-page">
+    <main className="projects-page sg-page">
       <div className="projects-inner">
 
         <Link to="/projects" className="project-page-back">← back to projects</Link>
@@ -144,8 +216,9 @@ const Software = () => {
           </p>
         </div>
 
-        <section className="project-page-section" aria-labelledby="overview">
-          <h2 id="overview" className="project-page-heading">Overview</h2>
+        <div className="sg-layout">
+        <div className="sg-main">
+        <Section id="overview" title="Overview" isOpen={isOpen("overview")} onToggle={() => toggle("overview")}>
           <p>
             Sgraffito is a decorative technique, popular in Renaissance architecture and ceramics, where
             carving through a top layer reveals a contrasting colour beneath. Carving can't be undone, so a
@@ -153,20 +226,18 @@ const Software = () => {
             sgraffito in simulation: how different tools and actions change layered material, and how an
             image can be turned into a carving plan that an artist can preview.
           </p>
-        </section>
+        </Section>
 
-        <section className="project-page-section" aria-labelledby="context-role">
-          <h2 id="context-role" className="project-page-heading">Context and my role</h2>
+        <Section id="context-role" title="Context and my role" isOpen={isOpen("context-role")} onToggle={() => toggle("context-role")}>
           <p>
             The project uses a simulation and planning framework built by my supervisor, Prof. SiQi Zhou
             (SFU), and is a collaboration with Dr. Lidia Atanasova (TUM). Gaurika Sharma and I worked on it
             together. My part was the experimental design and analysis of how tools and primitives behave,
             the artist-facing interface, and the research-day poster.
           </p>
-        </section>
+        </Section>
 
-        <section className="project-page-section" aria-labelledby="framework">
-          <h2 id="framework" className="project-page-heading">The framework I worked in</h2>
+        <Section id="framework" title="The framework I worked in" isOpen={isOpen("framework")} onToggle={() => toggle("framework")}>
           <ul className="card-bullets">
             <li>A layered canvas (each layer has its own colour and physical properties) and a tool defined by its geometry and tilt.</li>
             <li>Three action primitives: scrape (a straight pass at a set depth), trace (a curved path) and dot (a point press that compacts material without removing it).</li>
@@ -174,10 +245,9 @@ const Software = () => {
             <li>Two simulators: a fast geometric one (boolean subtraction on signed distance fields) and a physics-based one that is still being calibrated.</li>
             <li>Export to Blender for a photorealistic view.</li>
           </ul>
-        </section>
+        </Section>
 
-        <section className="project-page-section" aria-labelledby="experiments">
-          <h2 id="experiments" className="project-page-heading">What I found (experiments)</h2>
+        <Section id="experiments" title="What I found (experiments)" isOpen={isOpen("experiments")} onToggle={() => toggle("experiments")}>
           <p className="project-note">Each condition was run once, so I report no variance.</p>
           <div className="project-table-wrap">
             <table className="project-table">
@@ -199,10 +269,9 @@ const Software = () => {
             parameters that haven't been validated against real material, and the 0.9 mm ceiling has only
             been tested with the loop tool.
           </p>
-        </section>
+        </Section>
 
-        <section className="project-page-section" aria-labelledby="poster-results">
-          <h2 id="poster-results" className="project-page-heading">Poster results (simulated)</h2>
+        <Section id="poster-results" title="Poster results (simulated)" isOpen={isOpen("poster-results")} onToggle={() => toggle("poster-results")}>
           <p>
             On six designs, the voxel simulation (0.25 mm voxels) cut between 62.9% and 92.4% of each
             design's area. Over-cut was zero on four of the six designs. These are simulated carves, not
@@ -229,10 +298,9 @@ const Software = () => {
             Coverage of the ergodic fill rises quickly and then flattens (28%, 44%, 60% and 76% after 10,
             20, 40 and 210 strokes), so 40 strokes already give about 80% of the coverage that 210 do.
           </p>
-        </section>
+        </Section>
 
-        <section className="project-page-section" aria-labelledby="interface">
-          <h2 id="interface" className="project-page-heading">The artist-facing interface</h2>
+        <Section id="interface" title="The artist-facing interface" isOpen={isOpen("interface")} onToggle={() => toggle("interface")}>
           <p>
             A web interface where an artist uploads a drawing, picks a slab, plans the carve, and sees the
             simulated result before a robot runs. The pipeline stages are Prepare, Design, Rules,
@@ -245,10 +313,9 @@ const Software = () => {
             carved." Confirm I want to describe the rules editor and the four styles as my own work, then
             move this sentence into the paragraph above.
           */}
-        </section>
+        </Section>
 
-        <section className="project-page-section" aria-labelledby="changed">
-          <h2 id="changed" className="project-page-heading">How the project changed</h2>
+        <Section id="changed" title="How the project changed" isOpen={isOpen("changed")} onToggle={() => toggle("changed")}>
           <p>
             The first month used demonstration videos of dot, line and curve motions, with a
             vision-language model (Qwen) and OpenCV to recognize which primitive was being drawn. That
@@ -256,18 +323,16 @@ const Software = () => {
             image-driven planning. Learning primitives from demonstrations stays a long-term goal in the
             report.
           </p>
-        </section>
+        </Section>
 
-        <section className="project-page-section" aria-labelledby="next-steps">
-          <h2 id="next-steps" className="project-page-heading">Next steps</h2>
+        <Section id="next-steps" title="Next steps" isOpen={isOpen("next-steps")} onToggle={() => toggle("next-steps")}>
           <p>
             Calibrate the physics solver against real material measurements, extend the planner to trace
             primitives, and test whether the 0.9 mm ceiling is specific to the loop tool.
           </p>
-        </section>
+        </Section>
 
-        <section className="project-page-section" aria-labelledby="tech">
-          <h2 id="tech" className="project-page-heading">Tech</h2>
+        <Section id="tech" title="Tech" isOpen={isOpen("tech")} onToggle={() => toggle("tech")}>
           <p className="project-tech-line">
             Python, JAX, OpenVDB, OpenCV, Blender, MuJoCo and Pinocchio (arm simulation), Jupyter, Git.
           </p>
@@ -276,10 +341,9 @@ const Software = () => {
             confirmation. Specify the actual framework (e.g. React, Streamlit, Gradio) before adding it
             back to the line above.
           */}
-        </section>
+        </Section>
 
-        <section className="project-page-section" aria-labelledby="research-day">
-          <h2 id="research-day" className="project-page-heading">Research day</h2>
+        <Section id="research-day" title="Research day" isOpen={isOpen("research-day")} onToggle={() => toggle("research-day")}>
           <p>
             Presented as a poster, "Tool-Aware Ergodic Stroke Planning and Voxel Simulation for Robotic
             Sgraffito," at the SFU Computing Science research day, where the project was shortlisted for
@@ -313,10 +377,10 @@ const Software = () => {
           <a className="project-pdf-link" href="/docs/robot-sgraffito-report.pdf" target="_blank" rel="noopener noreferrer">
             Open the full report →
           </a>
-        </section>
+        </Section>
 
+        <Section id="visuals" title="Visuals" isOpen={isOpen("visuals")} onToggle={() => toggle("visuals")}>
         <div className="project-slideshow">
-          <h2 className="project-visuals-heading">Visuals</h2>
 
           {!imagesLoaded && (
             <div className="slideshow-loading">
@@ -343,6 +407,30 @@ const Software = () => {
             comparison, the flower density map, and the pipeline strip. None are exported as standalone
             image files yet; add them to src/assets/images/projects/ and this slideshow once they are.
           */}
+        </div>
+        </Section>
+        </div>
+
+        <nav className="sg-legend" aria-label="Sections on this page">
+          <div className="sg-legend-title">On this page</div>
+          <ul>
+            {sections.map(sec => (
+              <li key={sec.id}>
+                <a
+                  href={`#${sec.id}`}
+                  className={activeId === sec.id ? 'active' : ''}
+                  aria-current={activeId === sec.id ? 'true' : undefined}
+                  onClick={e => { e.preventDefault(); goTo(sec.id); }}
+                >
+                  {sec.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <button type="button" className="sg-legend-all" onClick={() => setAll(!allOpen)}>
+            {allOpen ? 'Collapse all' : 'Expand all'}
+          </button>
+        </nav>
         </div>
 
       </div>
