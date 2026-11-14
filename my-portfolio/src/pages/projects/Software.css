@@ -1,0 +1,178 @@
+/* Robot Sgraffito project page — builds on Projects.css and FlowRateDevice.css */
+
+.project-table-wrap {
+  overflow-x: auto;
+  margin: 0.75rem 0 0;
+}
+
+.project-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.87rem;
+  color: #3C2416;
+}
+
+.project-table th,
+.project-table td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: top;
+}
+
+.project-table th {
+  font-weight: 700;
+  color: #3C2416;
+  border-bottom: 2px solid #ebebeb;
+}
+
+.project-note {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #888;
+  margin-top: 0.6rem;
+}
+
+.project-subheading {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #3C2416;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.project-subheading:first-of-type {
+  margin-top: 0.75rem;
+}
+
+.project-video {
+  width: 100%;
+  border-radius: 8px;
+  border: 1.5px solid #ebebeb;
+  display: block;
+  background: #000;
+}
+
+.project-poster-image {
+  width: 100%;
+  border-radius: 8px;
+  border: 1.5px solid #ebebeb;
+  display: block;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.project-report-pages {
+  max-height: 720px;
+  overflow-y: auto;
+  border: 1.5px solid #ebebeb;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.project-report-page {
+  width: 100%;
+  display: block;
+}
+
+.project-report-page + .project-report-page {
+  border-top: 1px solid #ebebeb;
+}
+
+.project-pdf-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: #3C2416;
+  text-decoration: none;
+}
+
+.project-pdf-link:hover {
+  text-decoration: underline;
+}
+
+.project-tech-line {
+  font-size: 0.9rem;
+  color: #3C2416;
+  line-height: 1.7;
+  margin: 0.5rem 0 0;
+}
+
+/* ── Collapsible sections + legend ── */
+.sg-layout { display: flex; gap: 40px; align-items: flex-start; }
+.sg-main { flex: 1; min-width: 0; }
+
+.sg-heading { margin: 0; }
+.sg-heading button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: none;
+  border: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.sg-heading button:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
+.sg-indicator {
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 400 18px 'Inter', sans-serif;
+  color: var(--ink);
+}
+.sg-body { padding-top: 0.75rem; }
+.sg-section { scroll-margin-top: 24px; }
+
+.sg-legend {
+  flex: 0 0 220px;
+  position: sticky;
+  top: 24px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px 18px;
+}
+.sg-legend-title { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+.sg-legend ul { list-style: none; margin: 0; padding: 0; }
+.sg-legend a {
+  display: block;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--body);
+  text-decoration: none;
+}
+.sg-legend a:hover { background: var(--pink-tint); color: var(--ink); }
+.sg-legend a.active { background: var(--pink-tint); color: var(--ink); font-weight: 600; }
+.sg-legend-all {
+  margin-top: 10px;
+  padding: 6px 0 0;
+  background: none;
+  border: 0;
+  border-top: 1px solid var(--line);
+  width: 100%;
+  text-align: left;
+  font: 500 13px 'Inter', sans-serif;
+  color: var(--link);
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .sg-layout { flex-direction: column-reverse; gap: 16px; }
+  .sg-legend { position: static; width: 100%; flex: none; box-sizing: border-box; max-height: none; }
+}
+
+/* Wider frame so the legend fits beside the content */
+.sg-page .projects-inner { max-width: none; }
+.sg-main { max-width: 800px; }

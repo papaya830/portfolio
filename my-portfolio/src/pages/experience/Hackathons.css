@@ -162,6 +162,7 @@ a.hack-entry-event:focus-visible {
 .role-mentor      { background: #F2C2C2; }
 .role-judge       { background: #FA9058; }
 .role-winner      { background: #d81b60; color: white; }
+.role-finalist    { background: #F0C14B; }
 
 @media (max-width: 640px) {
   .hack-year {

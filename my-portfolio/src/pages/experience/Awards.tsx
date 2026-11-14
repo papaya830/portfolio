@@ -58,8 +58,15 @@ const awards: Award[] = [
     // TODO: awarding organization (e.g. SFU?) and link, if any
     date: '2022',
     amount: '$20,000',
-    note: 'Entrance scholarship awarded to a girl studying computer science.',
+    note: 'Entrance scholarship awarded to a woman studying computer science.',
     highlight: true,
+  },
+  {
+    id: 'mindshare',
+    name: 'The Mindshare Technology Award',
+    // TODO: awarding organization, amount, and link, if any
+    date: 'May 2022',
+    note: 'Given to a student studying technology.',
   },
 ];
 

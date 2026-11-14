@@ -1,7 +1,7 @@
 import '../projects/Projects.css';
 import './Hackathons.css';
 
-type Role = 'Participant' | 'Organizer' | 'Mentor' | 'Judge' | 'Winner';
+type Role = 'Participant' | 'Organizer' | 'Mentor' | 'Judge' | 'Winner' | 'Finalist';
 
 type Win = {
   id: string;
@@ -25,6 +25,15 @@ type TimelineEntry = {
 
 // Featured wins, newest first
 const wins: Win[] = [
+  {
+    id: 'jellyfish-umbrella',
+    title: 'Jellyfish Umbrella',
+    event: 'SFU FAS Speak Out Competition',
+    date: 'Feb–Mar 2026',
+    prize: '3rd place out of 15 teams, $1,250',
+    description: 'An interactive jellyfish-shaped outreach demo built with three teammates to spark curiosity about applied sciences in K-12 students.',
+    link: 'https://github.com/papaya830/Jellyfish-Umbrella',
+  },
   {
     id: 'askless',
     title: 'Askless',
@@ -56,6 +65,15 @@ const wins: Win[] = [
     // TODO: tech stack and my role
   },
   {
+    id: 'easyspeak',
+    title: 'EasySpeak',
+    event: 'SFU FAS Speak Out Competition',
+    date: 'Feb–Mar 2024',
+    prize: '3rd place out of 15 teams, $1,250',
+    description: 'An embedded device that lets students anonymously flag questions during class, built with a 4-person team.',
+    link: 'https://lnkd.in/gQEfZ-vu',
+  },
+  {
     id: 'wec-programming',
     title: 'Western Engineering Competition',
     event: 'SFU Qualifier, Programming',
@@ -68,11 +86,13 @@ const wins: Win[] = [
 
 // Newest first
 const timeline: TimelineEntry[] = [
+  { year: 2026, month: 'Oct', event: 'SFU Computing Science Research Day', role: 'Finalist', note: 'Presented the "Tool-Aware Ergodic Stroke Planning and Voxel Simulation for Robotic Sgraffito" poster; shortlisted for Best Undergraduate Project. Video, poster and report on the project page.', link: '/projects/software' },
   { year: 2026, month: 'Oct', event: 'StormHacks', host: 'SFU Surge', role: 'Participant', note: 'Built ScrollStake.', link: 'https://devpost.com/software/scrollstake' },
   { year: 2026, month: 'Jun', event: 'World Cup Designathon & Hackathon', host: 'Vancouver Made', role: 'Participant', note: 'Fashion track.', link: 'https://luma.com/erjpeza4?tk=kk1BIw' },
   { year: 2026, month: 'Summer', event: 'Enactus Summer Sprint Challenge', role: 'Participant', note: 'Built ShelterSpace out into a full-stack application.' },
   { year: 2026, month: 'Apr', event: 'SillyHacks', host: 'SFU Surge', role: 'Judge' },
   { year: 2026, month: 'Mar', event: 'Hack the Galaxy', host: 'SFU WiCS', role: 'Mentor', link: 'https://hackthegalaxy.ca/' },
+  { year: 2026, month: 'Feb–Mar', event: 'SFU FAS Speak Out Competition', role: 'Winner', note: '3rd place out of 15 teams with Jellyfish Umbrella, winning $1,250.', link: 'https://github.com/papaya830/Jellyfish-Umbrella' },
   { year: 2026, month: 'Jan', event: 'SSSS SystemsHack', role: 'Winner', note: 'Best Use of InternDB Track with Askless.', link: 'https://devpost.com/software/askless' },
   { year: 2025, month: 'Nov', event: 'Western Engineering Competition', host: 'Programming Qualifier', role: 'Winner' },
   { year: 2025, month: 'Oct', event: 'StormHacks', host: 'SFU Surge', role: 'Winner', note: 'Best Software Systems Hack with Connect SFU.', link: 'https://devpost.com/software/connectsfu' },
@@ -83,6 +103,7 @@ const timeline: TimelineEntry[] = [
   { year: 2024, month: 'Oct', event: 'StormHacks', host: 'SFU Surge', role: 'Winner', note: 'Most Innovative Project with BrainRot Lingo.', link: 'https://devpost.com/software/brainrot-lingo' },
   { year: 2024, month: 'May', event: 'StormHacks', host: 'SFU Surge', role: 'Participant' },
   { year: 2024, month: 'Mar', event: 'SSSS SystemsHack', role: 'Organizer', note: 'Worked on event ideas that took place during the hackathon.' },
+  { year: 2024, month: 'Feb–Mar', event: 'SFU FAS Speak Out Competition', role: 'Winner', note: '3rd place out of 15 teams with EasySpeak, winning $1,250.', link: 'https://lnkd.in/gQEfZ-vu' },
   { year: 2023, month: 'Nov', event: 'Western Engineering Competition', host: 'Programming Qualifier', role: 'Winner' },
   { year: 2023, month: 'Mar', event: 'SSSS SystemsHack', role: 'Organizer', note: 'Made the floor plan and took notes in calls with faculty.' },
   { year: 2023, month: 'Feb', event: 'Mountain Madness', host: 'CSSS', role: 'Participant', note: 'My first hackathon!' },

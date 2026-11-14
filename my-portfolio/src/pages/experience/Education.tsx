@@ -55,7 +55,19 @@ const Education = () => {
       <h2 className="section-title">Educational Programs</h2>
       <div className="section-content">
 
-        <h3 className="job-title">Student</h3>
+        <h3 className="job-title">Mentee</h3>
+        <p className="company">
+          <a href="https://rbcborealis.com/lets-solve-it/" target="_blank" rel="noopener noreferrer">Let's SOLVE it</a> (RBC Borealis)
+        </p>
+        <p className="date">Fall 2026 (8 weeks)</p>
+        <ul className="experience-list">
+          <li>Selected as one of six teams for the Fall 2026 cohort of Let's SOLVE it, an 8-week program where students build an AI project</li>
+          <li>
+            Co-founded <a href="https://github.com/karyao/TactileGen" target="_blank" rel="noopener noreferrer">TactileGen</a>, an open-source tool that converts chart images into tactile braille graphics for blind and low-vision students
+          </li>
+        </ul>
+
+        <h3 className="job-title second-job">Student</h3>
         <p className="company">AI4ALL</p>
         <p className="date">Summer 2021 (2 weeks)</p>
         <ul className="experience-list">

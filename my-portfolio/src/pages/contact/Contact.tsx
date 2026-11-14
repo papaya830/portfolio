@@ -12,7 +12,7 @@ const Contact = () => {
 
         <div className="contact-section">
           <p className="contact-label">email</p>
-          <a href="mailto:chloecocoyip@gmail.com" className="contact-value">chloecocoyip@gmail.com</a>
+          <a href="mailto:makewithchloe@gmail.com" className="contact-value">makewithchloe@gmail.com</a>
         </div>
 
         <div className="contact-section">

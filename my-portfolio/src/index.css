@@ -1,3 +1,38 @@
+/* Design tokens */
+:root {
+  --bg: #FFFCF9;
+  --ink: #2E1C12;
+  --body: #4A3428;
+  --muted: #6E5A4E;
+  --line: #EFE4DC;
+  --pink-soft: #FDDDE6;
+  --pink-tint: #FDE8EF;
+  --link: #B0164E;
+  --link-hover: #7A0F37;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cardo', serif;
+  color: var(--ink);
+}
+
+a {
+  color: var(--link);
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
 /* Reset approach for home page layout */
 
 html {
